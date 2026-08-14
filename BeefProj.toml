@@ -1,0 +1,6 @@
+FileVersion = 1
+
+[Project]
+Name = "ClockWorkEngine"
+TargetType = "BeefLib"
+StartupObject = "ClockWorkEngine.Program"
