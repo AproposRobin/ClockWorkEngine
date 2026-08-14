@@ -1,5 +1,5 @@
 FileVersion = 1
-Projects = {ClockWorkEditor = {Path = "ClockWorkEditor"}, ClockWorkEngine = {Path = "ClockWorkEngine"}}
+Projects = {ClockWorkEditor = {Path = "ClockWorkEditor"}, ClockWorkEngine = {Path = "ClockWorkEngine"}, ClockWorkUI = {Path = "ClockWorkUI"}}
 
 [Workspace]
 StartupProject = "ClockWorkEditor"

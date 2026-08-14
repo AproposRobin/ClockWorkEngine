@@ -1,7 +1,7 @@
 FileVersion = 1
 LastConfig = "Debug"
 LastPlatform = "Win64"
-RecentFilesList = ["ClockWorkEditor\\src\\ClockWorkWindow.bf", "ClockWorkEditor\\src\\ClockWorkRenderer.bf", "ClockWorkEditor\\src\\PanelManager\\CPanelManager.bf", "ClockWorkEditor\\src\\ClockWorkGui.bf", "ClockWorkEditor\\src\\ClockWorkEditor.bf"]
+RecentFilesList = ["ClockWorkUI\\src\\UIElement.bf", "ClockWorkEditor\\src\\ClockWorkRenderer.bf", "ClockWorkEditor\\src\\ClockWorkWindow.bf", "ClockWorkEditor\\src\\ClockWorkGui.bf", "ClockWorkEditor\\src\\ClockWorkEditor.bf"]
 
 [MainWindow]
 X = 323
@@ -43,6 +43,16 @@ DefaultDocumentsTabbedView = true
 Type = "TabbedView"
 
 [[MainDockingFrame.DockedWidgets.DockedWidgets.Tabs]]
+Active = true
+TabLabel = "UIElement.bf"
+TabWidth = 113.0
+TabIsPinned = false
+Type = "SourceViewPanel"
+FilePath = "ClockWorkUI\\src\\UIElement.bf"
+CursorPos = 67
+ProjectName = "ClockWorkUI"
+
+[[MainDockingFrame.DockedWidgets.DockedWidgets.Tabs]]
 TabLabel = "ClockWorkRenderer.bf"
 TabWidth = 170.0
 TabIsPinned = false
@@ -70,13 +80,12 @@ CursorPos = 68
 ProjectName = "ClockWorkEditor"
 
 [[MainDockingFrame.DockedWidgets.DockedWidgets.Tabs]]
-Active = true
 TabLabel = "ClockWorkWindow.bf"
 TabWidth = 154.0
 TabIsPinned = false
 Type = "SourceViewPanel"
 FilePath = "ClockWorkEditor\\src\\ClockWorkWindow.bf"
-CursorPos = 49
+CursorPos = 586
 ProjectName = "ClockWorkEditor"
 
 [[MainDockingFrame.DockedWidgets]]
