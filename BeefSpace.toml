@@ -1,0 +1,11 @@
+FileVersion = 1
+Projects = {ClockWorkEditor = {Path = "ClockWorkEditor"}, ClockWorkEngine = {Path = "ClockWorkEngine"}}
+
+[Workspace]
+StartupProject = "ClockWorkEditor"
+
+[Configs.Test.Win32]
+ConfigSelections = {ClockWorkEditor = {Config = "Debug"}}
+
+[Configs.Test.Win64]
+ConfigSelections = {ClockWorkEditor = {Config = "Debug"}}

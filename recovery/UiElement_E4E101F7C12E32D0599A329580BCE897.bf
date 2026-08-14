@@ -1,0 +1,6 @@
+namespace ClockWorkUI;
+
+class UIElement
+{
+
+}

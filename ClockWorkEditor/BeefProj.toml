@@ -1,0 +1,6 @@
+FileVersion = 1
+Dependencies = {corlib = "*", ClockWorkEngine = "*"}
+
+[Project]
+Name = "ClockWorkEditor"
+StartupObject = "ClockWorkEditor.ClockWorkEditor"
