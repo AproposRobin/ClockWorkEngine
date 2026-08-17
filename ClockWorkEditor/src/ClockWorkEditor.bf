@@ -32,6 +32,7 @@ class ClockWorkEditor
 		String AppName = scope String();
 		StringUtils.ConcatString(AppName, "ClockWork Engine Ver ", CEngine.GetEngineVersion());
 		CApp.Init(AppName);
+		CApp.SetEditorInstance(this);
 	}
 
 	public int Run()
