@@ -4,3 +4,8 @@ FileVersion = 1
 Name = "ClockWorkEngine"
 TargetType = "BeefLib"
 StartupObject = "ClockWorkEngine.Program"
+
+[Dependencies]
+corlib = "*"
+wgpu-Beef = "*"
+SDL3 = "*"

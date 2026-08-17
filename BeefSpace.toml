@@ -1,8 +1,13 @@
 FileVersion = 1
-Projects = {ClockWorkEditor = {Path = "ClockWorkEditor"}, ClockWorkEngine = {Path = "ClockWorkEngine"}, ClockWorkUI = {Path = "ClockWorkUI"}}
 
 [Workspace]
 StartupProject = "ClockWorkEditor"
+
+[Projects]
+ClockWorkEditor = {Path = "ClockWorkEditor"}
+ClockWorkEngine = {Path = "ClockWorkEngine"}
+wgpu-Beef = {Path = "lib/wgpu-Beef"}
+SDL3 = {Path = "lib/SDL3-Beef"}
 
 [Configs.Test.Win32]
 ConfigSelections = {ClockWorkEditor = {Config = "Debug"}}
