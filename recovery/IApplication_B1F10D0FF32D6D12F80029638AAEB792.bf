@@ -1,6 +1,0 @@
-namespace ClockWorkUI;
-
-interface IApplication
-{
-
-}
