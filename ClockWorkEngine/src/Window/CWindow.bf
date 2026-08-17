@@ -7,10 +7,10 @@ using SDL3.Raw;
 
 abstract class CWindow
 {
-	protected CApplication* App;
+	protected CApplication App;
 	protected StringView WindowName;
 
-	public this(CApplication* Application, StringView Name)
+	public this(CApplication Application, StringView Name)
 	{
 		App = Application;
 		WindowName = Name;

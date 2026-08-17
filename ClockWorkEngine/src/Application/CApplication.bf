@@ -11,12 +11,12 @@ using static SDL3.Raw.SDL_EventType;
 abstract class CApplication
 {
 	protected List<CWindow> Windows;
-	protected ClockWorkEngine* CEngine;
+	protected ClockWorkEngine CEngine;
 	protected StringView AppName;
 	protected SDL_Window* AppWindow;
 	protected SDL_Renderer* AppRenderer;
 
-	public this(ClockWorkEngine* Engine)
+	public this(ClockWorkEngine Engine)
 	{
 		CEngine = Engine;
 		SDL_Init(.SDL_INIT_EVENTS | .SDL_INIT_VIDEO);

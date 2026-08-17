@@ -9,7 +9,7 @@ using SDL3.Raw;
 class CEditorApplication : CApplication
 {
 	private ClockWorkEditor CEditor;
-	public this(ClockWorkEngine.ClockWorkEngine* Engine) : base(Engine){}
+	public this(ClockWorkEngine.ClockWorkEngine Engine) : base(Engine){}
 
 	public override void Init(StringView ApplicationName)
 	{

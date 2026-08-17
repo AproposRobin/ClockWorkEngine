@@ -28,7 +28,7 @@ class ClockWorkEditor
 	{
 		CEngine = new ClockWorkEngine();
 		CEngine.Init();
-		CApp = new CEditorApplication(&CEngine);
+		CApp = new CEditorApplication(CEngine);
 		String AppName = scope String();
 		StringUtils.ConcatString(AppName, "ClockWork Engine Ver ", CEngine.GetEngineVersion());
 		CApp.Init(AppName);
