@@ -1,5 +1,5 @@
 FileVersion = 1
-Dependencies = {corlib = "*", ClockWorkEngine = "*"}
+Dependencies = {corlib = "*", ClockWorkEngine = "*", SDL3 = "*", TailTrace = "*"}
 
 [Project]
 Name = "ClockWorkEditor"

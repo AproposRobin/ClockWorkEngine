@@ -1,5 +1,5 @@
 FileVersion = 1
-Projects = {ClockWorkEditor = {Path = "ClockWorkEditor"}, ClockWorkEngine = {Path = "ClockWorkEngine"}, corlib = "*"}
+Projects = {ClockWorkEditor = {Path = "ClockWorkEditor"}, ClockWorkEngine = {Path = "ClockWorkEngine"}, corlib = "*", SDL3 = {Path = "ThirdParty/SDL3-Beef"}, TailTrace = {Path = "ThirdParty/TailTrace"}}
 
 [Workspace]
 StartupProject = "ClockWorkEditor"
