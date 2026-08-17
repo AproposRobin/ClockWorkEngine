@@ -8,7 +8,7 @@ X = 187
 Y = 130
 Width = 1169
 Height = 877
-ShowKind = "ShowMaximized"
+ShowKind = "ShowNormal"
 
 [MainDockingFrame]
 Type = "DockingFrame"
@@ -95,7 +95,6 @@ TabIsPinned = false
 Type = "SourceViewPanel"
 FilePath = "ClockWorkEditor\\src\\ClockWorkEditor.bf"
 CursorPos = 879
-VertPos = 585.0
 ProjectName = "ClockWorkEditor"
 
 [[MainDockingFrame.DockedWidgets]]
