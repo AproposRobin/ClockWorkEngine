@@ -1,6 +1,0 @@
-FileVersion = 1
-Dependencies = {corlib = "*", MiniZ = "*"}
-
-[Project]
-Name = "Setup"
-StartupObject = "Setup.Program"

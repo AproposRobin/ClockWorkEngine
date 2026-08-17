@@ -22,7 +22,7 @@ class ClockWorkEditor
 
 	static public int Main()
 	{
-		AddLogger(new ConsoleLogger() ..SetLevel(.Trace));
+		AddLogger(new ConsoleLogger() ..SetLevel(.Trace) ..SetFormat("%l::%x (%o/%a/%y - %t)"));
 		let EditorApp = scope ClockWorkEditor();
 		EditorApp.Init();
 		return EditorApp.Run();
@@ -30,15 +30,15 @@ class ClockWorkEditor
 
 	public void Init()
 	{
-		Log.Info("Initializing Editor Application :: {}", DateTime.UtcNow);
+		Log.Info("Initializing Editor Application");
 		CEngine = new ClockWorkEngine();
 		if(CEngine == null)
 		{
-			Log.Error("ClockWorkEngine was not able to be created application will shutdown :: {}", DateTime.UtcNow);
+			Log.Error("ClockWorkEngine was not able to be created application will shutdown}");
 			ShutdownApplication(1);//<--Engine Creation Failure
 		}
 		CEngine.Init();
-		Log.Info("Engine was created and initialized :: {}", DateTime.UtcNow);
+		Log.Info("Engine was created and initialized");
 		CApp = new CEditorApplication(CEngine);
 		String AppName = scope String();
 		StringUtils.ConcatString(AppName, "ClockWork Engine Ver ", CEngine.GetEngineVersion());

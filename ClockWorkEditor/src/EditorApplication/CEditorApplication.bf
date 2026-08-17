@@ -14,7 +14,7 @@ class CEditorApplication : CApplication
 	private ClockWorkEditor CEditor;
 	public this(ClockWorkEngine.ClockWorkEngine Engine) : base(Engine)
 	{
-		Log.Info("Constructing Editor Application :: {}", DateTime.UtcNow);
+		Log.Info("Constructing Editor Application");
 	}
 
 	public override void Init(StringView ApplicationName)
