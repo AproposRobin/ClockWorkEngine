@@ -4,17 +4,10 @@ using System;
 using System.Collections;
 using ClockWorkEngine.CoreMinimal;
 
-struct SCeTypeInfo
-{
-	public Type Type;
-	public StringView DisplayName;
+struct SCeTypeFields : this(Dictionary<StringView, Type> Fields);
 
-	public this(Type Type, StringView DisplayName)
-	{
-		this.Type = Type;
-		this.DisplayName = DisplayName;
-	}
-}
+struct SCeTypeInfo : this(Type Type, StringView DisplayName, SCeTypeFields Fields);
+
 
 class CTypeRegistery : CModule
 {
@@ -27,15 +20,15 @@ class CTypeRegistery : CModule
 
 	public override void StartupModule()
 	{
-		RegisterType<SVector2D>("Vector 2D");
-		RegisterType<SVector3D>("Vector 3D");
-		RegisterType<SRotator>("Rotation");
-		RegisterType<STransform>("Transform");
+		RegisterType<SVector2D>("Vector 2D", .(new .() {("X", typeof(float)),("Y", typeof(float))}));
+		RegisterType<SVector3D>("Vector 3D", .(new .() {("X", typeof(float)),("Y", typeof(float)),("Z", typeof(float))}));
+		RegisterType<SRotator>("Rotation", .(new .() {("Pitch", typeof(float)),("Yaw", typeof(float)),("Roll", typeof(float))}));
+		RegisterType<STransform>("Transform", .(new .() {("Location", typeof(SVector3D)),("Rotation", typeof(SRotator)),("Scale", typeof(SVector3D))}));
 	}
 
-	public void RegisterType<T>(StringView DisplayName)
+	public void RegisterType<T>(StringView DisplayName, SCeTypeFields Fields)
 	{
-		Types[typeof(T)] = .(typeof(T), DisplayName);
+		Types[typeof(T)] = .(typeof(T), DisplayName, Fields);
 	}
 
 	public SCeTypeInfo GetTypeInfo(Type Type)
@@ -45,6 +38,10 @@ class CTypeRegistery : CModule
 
 	public override void ShutdownModule()
 	{
-
+		for(let Types in ref Types.Values)
+		{
+			delete Types.Fields.Fields;
+		}
+		Types.Clear();
 	}
 }

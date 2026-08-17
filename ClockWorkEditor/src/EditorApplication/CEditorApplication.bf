@@ -1,6 +1,7 @@
 namespace ClockWorkEditor.EditorApplication;
 
 using ClockWorkEngine.Application;
+using ClockWorkEditor.EditorWindow;
 using System;
 using System.Collections;
 
@@ -13,7 +14,11 @@ class CEditorApplication : CApplication
 
 	public override void Init(StringView ApplicationName)
 	{
-		CreateWindow(ApplicationName);
+		Windows.Add(new CEditorWindow(this, ApplicationName));
+		for(let Win in ref Windows)
+		{
+			Win.Init();
+		}
 	}
 
 	public void SetEditorInstance(ClockWorkEditor ClockWorkEditor)
@@ -23,11 +28,9 @@ class CEditorApplication : CApplication
 
 	public override void Tick()
 	{
-		SDL_SetRenderDrawColor(AppRenderer, 0, 0, 0, 255);
-		SDL_RenderClear(AppRenderer);
 		PollEvents();
 
-		SDL_RenderPresent(AppRenderer);
+
 	}
 
 	public override void Exit(int32 ExitReason)
@@ -37,6 +40,10 @@ class CEditorApplication : CApplication
 
 	public override void Shutdown()
 	{
-
+		for(let Win in ref Windows)
+		{
+			Win.Shutdown();
+			delete Win;
+		}
 	}
 }

@@ -15,11 +15,6 @@ class CModuleManager
 		CEngine = GameEngine;
 	}
 
-	public ~this()
-	{
-
-	}
-
 	public void RegisterModule(CModule Module)
 	{
 		Modules[Module.GetModuleName()] = Module;
@@ -39,7 +34,7 @@ class CModuleManager
 
 			if(Mod.GetPublicDependencies().Length != 0)
 			{
-				for(let DepName in Mod.GetPublicDependencies())
+				for(let DepName in ref Mod.GetPublicDependencies())
 				{
 					if(Modules.TryGetValue(DepName, let Dep))
 						Visit(Dep);
@@ -52,26 +47,27 @@ class CModuleManager
 			return;
 		}
 
-		for(let Mod in Modules.Values)
+		for(let Mod in ref Modules.Values)
 			Visit(Mod);
 
-		for(let Mod in SortedMods)
+		for(let Mod in ref SortedMods)
 			Mod.StartupModule();
 	}
 
 	public void ShutdownAllModules()
 	{
-		for(let Mod in Modules.Values)
+		for(let Mod in ref Modules.Values)
 		{
 			Mod.ShutdownModule();
 			delete Mod;//<--We need to ensure we delete the mod at the end or we will have a leak
 		}
+		Modules.Clear();
 	}
 
 	public void TickModules(float DeltaTime)
 	{
 		//Later we should check if a module can even tick not all of them need to
-		for(let Mod in Modules.Values)
+		for(let Mod in ref Modules.Values)
 			Mod.ModuleTick(DeltaTime);
 	}
 

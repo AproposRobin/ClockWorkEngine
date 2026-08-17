@@ -10,11 +10,9 @@ using static SDL3.Raw.SDL_EventType;
 
 abstract class CApplication
 {
-	protected List<CWindow> Windows;
+	protected List<CWindow> Windows = new .() ~ delete _;
 	protected ClockWorkEngine CEngine;
 	protected StringView AppName;
-	protected SDL_Window* AppWindow;
-	protected SDL_Renderer* AppRenderer;
 
 	public this(ClockWorkEngine Engine)
 	{
@@ -27,11 +25,6 @@ abstract class CApplication
 	public abstract void Exit(int32 ExitReason);
 	public abstract void Shutdown();
 
-	public void CreateWindow(StringView WindowTitle)
-	{
-		SDL_CreateWindowAndRenderer(scope String(WindowTitle), 800, 600, .SDL_WINDOW_RESIZABLE | .SDL_WINDOW_MAXIMIZED, &AppWindow, &AppRenderer);
-	}
-
 	public void PollEvents()
 	{
 		SDL_Event Event = default;
@@ -39,7 +32,7 @@ abstract class CApplication
 		{
 			switch(Event.type)
 			{
-			case (uint32)SDL_EVENT_QUIT:
+			case (.)SDL_EVENT_QUIT://<--All the . is doing is telling the compile to infer the type for me in this case it's a uint32 cast
 				Exit(0);
 				break;
 			default:
