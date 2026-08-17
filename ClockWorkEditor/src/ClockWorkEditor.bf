@@ -10,6 +10,7 @@ using TailTrace;
 using TailTrace.Loggers;
 
 using static TailTrace.Log;
+using static ClockWorkEngine.Utils.StringUtils;
 
 class ClockWorkEditor
 {
@@ -34,14 +35,14 @@ class ClockWorkEditor
 		CEngine = new ClockWorkEngine();
 		if(CEngine == null)
 		{
-			Log.Error("ClockWorkEngine was not able to be created application will shutdown}");
+			Log.Error("ClockWorkEngine was not able to be created application will shutdown");
 			ShutdownApplication(1);//<--Engine Creation Failure
 		}
 		CEngine.Init();
 		Log.Info("Engine was created and initialized");
 		CApp = new CEditorApplication(CEngine);
 		String AppName = scope String();
-		StringUtils.ConcatString(AppName, "ClockWork Engine Ver ", CEngine.GetEngineVersion());
+		ConcatString(AppName, "ClockWork Engine Ver ", CEngine.GetEngineVersion());
 		CApp.Init(AppName);
 		CApp.SetEditorInstance(this);
 	}

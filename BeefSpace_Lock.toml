@@ -1,0 +1,11 @@
+FileVersion = 1
+
+[Locks."SDL3-Beef.git".Git]
+URL = "https://github.com/Booklordofthedings/SDL3-Beef.git"
+Tag = ""
+Hash = "d8df10fb1303ebb141e38bf97bc43c49afe1ece2"
+
+[Locks."TailTrace.git".Git]
+URL = "https://github.com/RogueMacro/TailTrace.git"
+Tag = ""
+Hash = "a6aed0ab84d00fed287be30fc8200390239fae2b"

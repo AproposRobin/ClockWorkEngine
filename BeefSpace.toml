@@ -1,5 +1,5 @@
 FileVersion = 1
-Projects = {ClockWorkEditor = {Path = "ClockWorkEditor"}, ClockWorkEngine = {Path = "ClockWorkEngine"}, corlib = "*", SDL3 = {Path = "ThirdParty/SDL3-Beef"}, TailTrace = {Path = "ThirdParty/TailTrace"}}
+Projects = {ClockWorkEditor = {Path = "ClockWorkEditor"}, ClockWorkEngine = {Path = "ClockWorkEngine"}, corlib = "*", "SDL3-Beef.git" = {Git = "https://github.com/Booklordofthedings/SDL3-Beef.git"}, "TailTrace.git" = {Git = "https://github.com/RogueMacro/TailTrace.git"}, ImGuiImplSDL = "*", ImGui = "*"}
 
 [Workspace]
 StartupProject = "ClockWorkEditor"

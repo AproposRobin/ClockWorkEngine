@@ -1,5 +1,5 @@
 FileVersion = 1
-Dependencies = {corlib = "*", ClockWorkEngine = "*", SDL3 = "*", TailTrace = "*"}
+Dependencies = {corlib = "*", ClockWorkEngine = "*", "SDL3-Beef.git" = {Git = "https://github.com/Booklordofthedings/SDL3-Beef.git"}, "TailTrace.git" = {Git = "https://github.com/RogueMacro/TailTrace.git"}}
 
 [Project]
 Name = "ClockWorkEditor"

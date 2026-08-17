@@ -1,6 +1,0 @@
-[submodule "ThirdParty/TailTrace"]
-	path = ThirdParty/TailTrace
-	url = https://github.com/RogueMacro/TailTrace.git
-[submodule "ThirdParty/SDL3-Beef"]
-	path = ThirdParty/SDL3-Beef
-	url = https://github.com/Booklordofthedings/SDL3-Beef.git

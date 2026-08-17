@@ -28,4 +28,7 @@ abstract class CWindow
 	public abstract void Init();
 	public abstract void Tick();
 	public abstract void Shutdown();
+	public abstract void DrawUI();
+
+	public virtual void CreateCustomWindow(StringView WindowTitle){}
 }

@@ -8,6 +8,9 @@ using SDL3.Raw;
 
 using static SDL3.Raw.SDL_EventType;
 
+using TailTrace;
+
+
 abstract class CApplication
 {
 	protected List<CWindow> Windows = new .() ~ delete _;
@@ -17,7 +20,11 @@ abstract class CApplication
 	public this(ClockWorkEngine Engine)
 	{
 		CEngine = Engine;
-		SDL_Init(.SDL_INIT_EVENTS | .SDL_INIT_VIDEO);
+		if(!SDL_Init(.SDL_INIT_EVENTS | .SDL_INIT_VIDEO))
+		{
+			Log.Error("Failed to initialize SDL, application will shutdown");
+			Exit(2);//<--Exit code 2 SDL initialization failure
+		}
 	}
 
 	public abstract void Init(StringView ApplicationName);
