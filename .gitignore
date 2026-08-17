@@ -1,0 +1,33 @@
+# Beef build output
+build/
+bin/
+obj/
+
+# Beef IDE user-specific / local state
+BeefSpace_User.toml
+recovery/
+*.beefproj.user
+
+# IDE crash/autosave recovery
+*.recovery
+.beef_recovery/
+
+# Windows / Visual Studio cruft (common alongside Beef on Win11)
+*.pdb
+*.ilk
+*.exp
+*.lib
+*.exe
+*.dll
+.vs/
+*.vcxproj.user
+
+# Editor/OS junk
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
