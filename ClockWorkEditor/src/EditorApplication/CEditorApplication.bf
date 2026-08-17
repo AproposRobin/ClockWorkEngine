@@ -5,12 +5,17 @@ using ClockWorkEditor.EditorWindow;
 using System;
 using System.Collections;
 
+using TailTrace;
+
 using SDL3.Raw;
 
 class CEditorApplication : CApplication
 {
 	private ClockWorkEditor CEditor;
-	public this(ClockWorkEngine.ClockWorkEngine Engine) : base(Engine){}
+	public this(ClockWorkEngine.ClockWorkEngine Engine) : base(Engine)
+	{
+		Log.Info("Constructing Editor Application :: {}", DateTime.UtcNow);
+	}
 
 	public override void Init(StringView ApplicationName)
 	{
@@ -29,8 +34,8 @@ class CEditorApplication : CApplication
 	public override void Tick()
 	{
 		PollEvents();
-
-
+		for(let Win in ref Windows)
+			Win.Tick();
 	}
 
 	public override void Exit(int32 ExitReason)

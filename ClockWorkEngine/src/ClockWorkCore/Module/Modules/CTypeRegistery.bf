@@ -20,8 +20,8 @@ class CTypeRegistery : CModule
 
 	public override void StartupModule()
 	{
-		RegisterType<SVector2D>("Vector 2D", .(new .() {("X", typeof(float)),("Y", typeof(float))}));
-		RegisterType<SVector3D>("Vector 3D", .(new .() {("X", typeof(float)),("Y", typeof(float)),("Z", typeof(float))}));
+		RegisterType<SVector2D>("Vector2D", .(new .() {("X", typeof(float)),("Y", typeof(float))}));
+		RegisterType<SVector3D>("Vector3D", .(new .() {("X", typeof(float)),("Y", typeof(float)),("Z", typeof(float))}));
 		RegisterType<SRotator>("Rotation", .(new .() {("Pitch", typeof(float)),("Yaw", typeof(float)),("Roll", typeof(float))}));
 		RegisterType<STransform>("Transform", .(new .() {("Location", typeof(SVector3D)),("Rotation", typeof(SRotator)),("Scale", typeof(SVector3D))}));
 	}

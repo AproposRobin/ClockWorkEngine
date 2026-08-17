@@ -22,7 +22,7 @@ abstract class CWindow
 
 	public void CreateWindow(StringView WindowTitle)
 	{
-		SDL_CreateWindowAndRenderer(scope String(WindowTitle), 800, 600, .SDL_WINDOW_RESIZABLE | .SDL_WINDOW_MAXIMIZED, &AppWindow, &AppRenderer);
+		SDL_CreateWindowAndRenderer(scope String(WindowTitle), 800, 600, .SDL_WINDOW_RESIZABLE | .SDL_WINDOW_MAXIMIZED | .SDL_WINDOW_BORDERLESS, &AppWindow, &AppRenderer);
 	}
 
 	public abstract void Init();

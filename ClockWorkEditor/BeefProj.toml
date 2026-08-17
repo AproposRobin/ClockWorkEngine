@@ -1,11 +1,6 @@
 FileVersion = 1
+Dependencies = {corlib = "*", ClockWorkEngine = "*", wgpu-Beef = "*", SDL3 = "*", TailTrace = "*"}
 
 [Project]
 Name = "ClockWorkEditor"
 StartupObject = "ClockWorkEditor.ClockWorkEditor"
-
-[Dependencies]
-corlib = "*"
-ClockWorkEngine = "*"
-wgpu-Beef = "*"
-SDL3 = "*"

@@ -1,11 +1,11 @@
 FileVersion = 1
 LastConfig = "Debug"
 LastPlatform = "Win64"
-RecentFilesList = ["ClockWorkEditor\\src\\EditorWindow\\CEditorWindow.bf", "ClockWorkEditor\\src\\EditorApplication\\CEditorApplication.bf", "ClockWorkEngine\\src\\Application\\CApplication.bf", "ClockWorkEngine\\src\\Window\\CWindow.bf", "ClockWorkEngine\\src\\ClockWorkCore\\ClockWorkUI\\Window\\CWindow.bf", "ClockWorkEditor\\src\\PanelManager\\Panel\\Panels\\CToolBarPanel.bf", "ClockWorkEditor\\src\\PanelManager\\Panel\\CPanel.bf", "ClockWorkEditor\\src\\PanelManager\\CPanelManager.bf", "ClockWorkEditor\\src\\Window\\WindowRenderer\\Renderers\\CPrimaryWindowRenderer.bf", "ClockWorkEditor\\src\\Window\\Gui\\Guis\\CPrimaryGui.bf", "ClockWorkEngine\\src\\Core\\ModuleManager\\Module\\Modules\\CTypeRegister.bf", "ClockWorkEngine\\src\\Core\\ModuleManager\\Module\\CModule.bf"]
+RecentFilesList = ["ClockWorkEditor\\src\\ClockWorkEditor.bf", "ClockWorkEngine\\src\\ClockWorkCore\\Module\\Modules\\CTypeRegistery.bf", "ClockWorkEngine\\src\\Application\\CApplication.bf", "ClockWorkEngine\\src\\Window\\CWindow.bf", "ClockWorkEditor\\src\\EditorApplication\\CEditorApplication.bf", "ClockWorkEditor\\src\\EditorWindow\\CEditorWindow.bf", "ClockWorkEngine\\src\\ClockWorkCore\\ClockWorkUI\\Window\\CWindow.bf", "ClockWorkEditor\\src\\PanelManager\\Panel\\Panels\\CToolBarPanel.bf", "ClockWorkEditor\\src\\PanelManager\\Panel\\CPanel.bf", "ClockWorkEditor\\src\\PanelManager\\CPanelManager.bf", "ClockWorkEditor\\src\\Window\\WindowRenderer\\Renderers\\CPrimaryWindowRenderer.bf", "ClockWorkEditor\\src\\Window\\Gui\\Guis\\CPrimaryGui.bf", "ClockWorkEngine\\src\\Core\\ModuleManager\\Module\\Modules\\CTypeRegister.bf", "ClockWorkEngine\\src\\Core\\ModuleManager\\Module\\CModule.bf"]
 
 [MainWindow]
-X = 53
-Y = 625
+X = 0
+Y = 0
 Width = 1936
 Height = 1100
 ShowKind = "ShowMaximized"
@@ -43,42 +43,59 @@ DefaultDocumentsTabbedView = true
 Type = "TabbedView"
 
 [[MainDockingFrame.DockedWidgets.DockedWidgets.Tabs]]
+TabLabel = "ClockWorkEditor.bf"
+TabWidth = 151.0
+TabIsPinned = false
+Type = "SourceViewPanel"
+FilePath = "ClockWorkEditor\\src\\ClockWorkEditor.bf"
+CursorPos = 161
+ProjectName = "ClockWorkEditor"
+
+[[MainDockingFrame.DockedWidgets.DockedWidgets.Tabs]]
+TabLabel = "CTypeRegistery.bf"
+TabWidth = 145.0
+TabIsPinned = false
+Type = "SourceViewPanel"
+FilePath = "ClockWorkEngine\\src\\ClockWorkCore\\Module\\Modules\\CTypeRegistery.bf"
+CursorPos = 631
+VertPos = 90.0
+ProjectName = "ClockWorkEngine"
+
+[[MainDockingFrame.DockedWidgets.DockedWidgets.Tabs]]
 TabLabel = "CApplication.bf"
-TabWidth = 128.0
+TabWidth = 118.0
 TabIsPinned = false
 Type = "SourceViewPanel"
 FilePath = "ClockWorkEngine\\src\\Application\\CApplication.bf"
-CursorPos = 783
-VertPos = 55.0
+CursorPos = 424
 ProjectName = "ClockWorkEngine"
 
 [[MainDockingFrame.DockedWidgets.DockedWidgets.Tabs]]
 TabLabel = "CEditorApplication.bf"
-TabWidth = 163.0
+TabWidth = 153.0
 TabIsPinned = false
 Type = "SourceViewPanel"
 FilePath = "ClockWorkEditor\\src\\EditorApplication\\CEditorApplication.bf"
-CursorPos = 498
+CursorPos = 686
+VertPos = 180.0
 ProjectName = "ClockWorkEditor"
 
 [[MainDockingFrame.DockedWidgets.DockedWidgets.Tabs]]
 TabLabel = "CWindow.bf"
-TabWidth = 110.0
+TabWidth = 100.0
 TabIsPinned = false
 Type = "SourceViewPanel"
 FilePath = "ClockWorkEngine\\src\\Window\\CWindow.bf"
-CursorPos = 568
-VertPos = 270.0
+CursorPos = 512
 ProjectName = "ClockWorkEngine"
 
 [[MainDockingFrame.DockedWidgets.DockedWidgets.Tabs]]
-Active = true
 TabLabel = "CEditorWindow.bf"
-TabWidth = 145.0
+TabWidth = 135.0
 TabIsPinned = false
 Type = "SourceViewPanel"
 FilePath = "ClockWorkEditor\\src\\EditorWindow\\CEditorWindow.bf"
-CursorPos = 436
+CursorPos = 376
 ProjectName = "ClockWorkEditor"
 
 [[MainDockingFrame.DockedWidgets]]

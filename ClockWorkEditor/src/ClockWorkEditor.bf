@@ -6,7 +6,10 @@ using System.Collections;
 using ClockWorkEditor.EditorApplication;
 using ClockWorkEngine;
 using ClockWorkEngine.Utils;
+using TailTrace;
+using TailTrace.Loggers;
 
+using static TailTrace.Log;
 
 class ClockWorkEditor
 {
@@ -19,6 +22,7 @@ class ClockWorkEditor
 
 	static public int Main()
 	{
+		AddLogger(new ConsoleLogger() ..SetLevel(.Trace));
 		let EditorApp = scope ClockWorkEditor();
 		EditorApp.Init();
 		return EditorApp.Run();
@@ -26,8 +30,15 @@ class ClockWorkEditor
 
 	public void Init()
 	{
+		Log.Info("Initializing Editor Application :: {}", DateTime.UtcNow);
 		CEngine = new ClockWorkEngine();
+		if(CEngine == null)
+		{
+			Log.Error("ClockWorkEngine was not able to be created application will shutdown :: {}", DateTime.UtcNow);
+			ShutdownApplication(1);//<--Engine Creation Failure
+		}
 		CEngine.Init();
+		Log.Info("Engine was created and initialized :: {}", DateTime.UtcNow);
 		CApp = new CEditorApplication(CEngine);
 		String AppName = scope String();
 		StringUtils.ConcatString(AppName, "ClockWork Engine Ver ", CEngine.GetEngineVersion());
@@ -50,7 +61,8 @@ class ClockWorkEditor
 
 		delete CApp;
 		delete CEngine;
-		return 0;
+		return ExitCode;
+		
 	}
 
 	public void ShutdownApplication(int32 ReasonCode)

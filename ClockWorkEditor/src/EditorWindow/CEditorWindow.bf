@@ -19,12 +19,10 @@ class CEditorWindow : CWindow
 
 	public override void Tick()
 	{
-		SDL_SetRenderDrawColor(AppRenderer, 0, 0, 0, 255);
-		SDL_RenderClear(AppRenderer);
 		SDL_SetRenderDrawColor(AppRenderer, 35, 35, 38, 255);
 
 		//Draw UI
-
+		SDL_RenderClear(AppRenderer);
 		SDL_RenderPresent(AppRenderer);
 	}
 }
