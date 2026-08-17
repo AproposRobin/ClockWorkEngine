@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en-us">
+<head>
+	<meta charset="utf-8">
+	<title>wgpu-Beef — WebGPU triangle</title>
+	<style>
+		html, body { margin: 0; height: 100%; background: #15151a; }
+		body { display: flex; align-items: center; justify-content: center; }
+		#canvas { background: #000; display: block; }
+		#error {
+			position: fixed; top: 0; left: 0; right: 0;
+			color: #ff6b6b; font: 14px/1.4 monospace; padding: 8px;
+			white-space: pre-wrap;
+		}
+	</style>
+</head>
+<body>
+	<canvas id="canvas" width="800" height="600" oncontextmenu="event.preventDefault()" tabindex="-1"></canvas>
+	<div id="error"></div>
+	<script>
+		// Defined before the Emscripten runtime loads; the generated JS merges into it.
+		var Module = {
+			canvas: document.getElementById('canvas'),
+			print: function (text) { console.log(text); },
+			printErr: function (text) {
+				console.error(text);
+				document.getElementById('error').textContent += text + '\n';
+			},
+		};
+	</script>
+	{{{ SCRIPT }}}
+</body>
+</html>

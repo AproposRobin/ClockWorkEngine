@@ -1,0 +1,14 @@
+FileVersion = 1
+ExtraPlatforms = ["wasm32"]
+
+[Workspace]
+StartupProject = "wgpu-Beef-Test"
+
+[Projects]
+wgpu-Beef = {Path = "."}
+wgpu-Beef-Test = {Path = "wgpu-Beef-Test"}
+
+[Configs.Debug.wasm32]
+AllocType = "CRT"
+EnableObjectDebugFlags = false
+EmitObjectAccessCheck = false

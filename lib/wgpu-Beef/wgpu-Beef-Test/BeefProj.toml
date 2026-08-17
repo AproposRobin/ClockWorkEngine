@@ -1,0 +1,19 @@
+FileVersion = 1
+
+[Project]
+Name = "wgpu-Beef-Test"
+TargetType = "BeefGUIApplication"
+StartupObject = "wgpu_Beef_Test.Program"
+
+[Dependencies]
+corlib = "*"
+wgpu-Beef = "*"
+SDL2 = "*"
+
+[Configs.Debug.wasm32]
+TargetDirectory = "$(ProjectDir)\\dist\\"
+OtherLinkFlags = "$(LinkFlags) --use-port=emdawnwebgpu:cpp_bindings=false -s ALLOW_MEMORY_GROWTH=1 -s ASSERTIONS=1 --shell-file $(ProjectDir)/shell.html"
+
+[Configs.Release.wasm32]
+TargetDirectory = "$(ProjectDir)\\dist\\"
+OtherLinkFlags = "$(LinkFlags) --use-port=emdawnwebgpu:cpp_bindings=false -s ALLOW_MEMORY_GROWTH=1 --closure=1 --shell-file $(ProjectDir)/shell.html"
