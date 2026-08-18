@@ -41,6 +41,10 @@ class ClockWorkEditor
 		CEngine.Init();
 		Log.Info("Engine was created and initialized");
 		CApp = new CEditorApplication(CEngine);
+		if(CApp == null)
+		{
+			Log.Error("ClockWork Editor Application was not able to be created");
+		}
 		String AppName = scope String();
 		ConcatString(AppName, "ClockWork Engine Ver ", CEngine.GetEngineVersion());
 		CApp.Init(AppName);
