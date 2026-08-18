@@ -2,6 +2,8 @@
 
 A lightweight game engine built from scratch in [Beef](https://www.beeflang.org/), designed around composition and a visual-scripting workflow that plays nicely with version control.
 
+The Engine is currently in an extremely early build state, expect breaking changes to occur broadly and without warning.
+
 ## Why ClockWorkEngine?
 
 Most engines either bolt ECS on as an afterthought or bury visual scripting behind opaque, undiffable binary/blob assets. ClockWorkEngine starts from two core problems:
