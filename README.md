@@ -40,4 +40,4 @@ ClockWorkEngine is early and under active development. Current focus is on found
 
 ## License
 
-TBD.
+[MIT](https://opensource.org/license/mit)
