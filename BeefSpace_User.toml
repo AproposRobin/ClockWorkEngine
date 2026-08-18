@@ -1,7 +1,7 @@
 FileVersion = 1
 LastConfig = "Debug"
 LastPlatform = "Win64"
-RecentFilesList = ["ClockWorkEngine\\src\\ClockWorkEngine.bf", "ClockWorkEngine\\src\\Utils\\StringUtils.bf", "ClockWorkEngine\\src\\ClockWorkCore\\Module\\Modules\\CLogger.bf", "ClockWorkEngine\\src\\ClockWorkCore\\CoreMinimal.bf", "lib\\TailTrace\\src\\Formatting\\DefaultFormatter.bf", "ClockWorkEngine\\src\\ClockWorkCore\\ClockWorkUI\\Window\\CWindow.bf", "ClockWorkEditor\\src\\PanelManager\\Panel\\Panels\\CToolBarPanel.bf", "ClockWorkEditor\\src\\PanelManager\\Panel\\CPanel.bf", "ClockWorkEditor\\src\\PanelManager\\CPanelManager.bf", "ClockWorkEditor\\src\\Window\\WindowRenderer\\Renderers\\CPrimaryWindowRenderer.bf", "ClockWorkEditor\\src\\Window\\Gui\\Guis\\CPrimaryGui.bf", "ClockWorkEngine\\src\\Core\\ModuleManager\\Module\\Modules\\CTypeRegister.bf", "ClockWorkEngine\\src\\Core\\ModuleManager\\Module\\CModule.bf"]
+RecentFilesList = ["ClockWorkEngine\\src\\ClockWorkCore\\Module\\Modules\\CLogger.bf", "ClockWorkEditor\\src\\ClockWorkEditor.bf", "Disassembly", "ClockWorkEngine\\src\\ClockWorkEngine.bf", "ClockWorkEngine\\src\\ClockWorkCore\\CoreMinimal.bf", "ClockWorkEngine\\src\\Utils\\StringUtils.bf", "lib\\TailTrace\\src\\Formatting\\DefaultFormatter.bf", "ClockWorkEngine\\src\\ClockWorkCore\\ClockWorkUI\\Window\\CWindow.bf", "ClockWorkEditor\\src\\PanelManager\\Panel\\Panels\\CToolBarPanel.bf", "ClockWorkEditor\\src\\PanelManager\\Panel\\CPanel.bf", "ClockWorkEditor\\src\\PanelManager\\CPanelManager.bf", "ClockWorkEditor\\src\\Window\\WindowRenderer\\Renderers\\CPrimaryWindowRenderer.bf", "ClockWorkEditor\\src\\Window\\Gui\\Guis\\CPrimaryGui.bf", "ClockWorkEngine\\src\\Core\\ModuleManager\\Module\\Modules\\CTypeRegister.bf", "ClockWorkEngine\\src\\Core\\ModuleManager\\Module\\CModule.bf"]
 
 [MainWindow]
 X = 4
@@ -22,7 +22,7 @@ Type = "DockingFrame"
 SplitType = 1
 
 [[MainDockingFrame.DockedWidgets.DockedWidgets]]
-RequestedWidth = 426.1
+RequestedWidth = 272.0
 RequestedHeight = 200.0
 Type = "TabbedView"
 
@@ -43,7 +43,22 @@ DefaultDocumentsTabbedView = true
 Type = "TabbedView"
 
 [[MainDockingFrame.DockedWidgets.DockedWidgets.Tabs]]
-Active = true
+TabLabel = "ClockWorkEditor.bf"
+TabWidth = 151.0
+TabIsPinned = false
+Type = "SourceViewPanel"
+FilePath = "ClockWorkEditor\\src\\ClockWorkEditor.bf"
+CursorPos = 618
+VertPos = 135.0
+ProjectName = "ClockWorkEditor"
+
+[[MainDockingFrame.DockedWidgets.DockedWidgets.Tabs]]
+TabLabel = "Disassembly"
+TabWidth = 112.0
+TabIsPinned = false
+Type = "DisassemblyPanel"
+
+[[MainDockingFrame.DockedWidgets.DockedWidgets.Tabs]]
 TabLabel = "ClockWorkEngine.bf"
 TabWidth = 156.0
 TabIsPinned = false
@@ -72,13 +87,14 @@ CursorPos = 72
 ProjectName = "ClockWorkEngine"
 
 [[MainDockingFrame.DockedWidgets.DockedWidgets.Tabs]]
+Active = true
 TabLabel = "CLogger.bf"
 TabWidth = 104.0
 TabIsPinned = false
 Type = "SourceViewPanel"
 FilePath = "ClockWorkEngine\\src\\ClockWorkCore\\Module\\Modules\\CLogger.bf"
-CursorPos = 713
-VertPos = 360.0
+CursorPos = 2428
+VertPos = 1530.0
 ProjectName = "ClockWorkEngine"
 
 [[MainDockingFrame.DockedWidgets]]

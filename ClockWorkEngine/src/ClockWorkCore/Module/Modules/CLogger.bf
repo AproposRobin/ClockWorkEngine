@@ -19,16 +19,12 @@ enum ELogVerbosity
 	Error
 }
 
-struct SLogCategoryInfo
-{
-	private String Log;
-	private bool bShow = true;
-}
+struct SLogCategoryInfo : this(String Log, bool bShow);
 
 class CLogger : CModule
 {
-	static private List<StringView> LogCategories;
-	static private Dictionary<StringView, SLogCategoryInfo> Logs;
+	static private Dictionary<StringView, bool> LogCategories = new .() ~ delete(_);
+	static private Dictionary<StringView, SLogCategoryInfo> Logs = new .() ~ delete(_);
 
 
 	public override System.StringView GetModuleName()
@@ -51,7 +47,7 @@ class CLogger : CModule
 	{
 		StringView Category = scope String();
 
-		if(!LogCategories.Contains(LogCategory))
+		if(LogCategories.ContainsKey(LogCategory))
 		{
 			//We don't have the define category we are going to seperate it into an undefined log
 			Category = "Undefined";
@@ -62,43 +58,65 @@ class CLogger : CModule
 			Category = LogCategory;
 		}
 
-		let DebugString = scope String();
-		ConcatString(DebugString, Category, ": ", LogMessage);
+		let LogString = scope String();
+		ConcatString(LogString, Category, ": ", LogMessage);
 		switch(Verbosity)
 		{
 		case .Trace:
-			Log.Trace(DebugString);
+			Log.Trace(LogString);
 			break;
 
 		case .Debug:
-			Log.Debug(DebugString);
+			Log.Debug(LogString);
 			break;
 
 		case .Info:
-			Log.Info(DebugString);
+			Log.Info(LogString);
 			break;
 
 		case .Warning:
-			Log.Warning(DebugString);
+			Log.Warning(LogString);
 			break;
 
 		case .Error:
-			Log.Error(DebugString);
+			Log.Error(LogString);
 			break;
 
 		default:
-			Log.Info(DebugString);
+			Log.Info(LogString);
 			break;
 		}
+		Logs.Add(Category, .(LogString, ShouldShowCategory(Category)));
 	}
 
-	public void DeclareLogCategory(params Object[] Values)
+	public void DeclareLogCategory(params StringView[] Values)
 	{
 		for(let Cat in ref Values)
 		{
-			if(!LogCategories.Contains((StringView)Cat))
-				LogCategories.Add((StringView)Cat);
+			if(!LogCategories.ContainsKey(Cat))
+				LogCategories.Add(Cat, true);//<--All Declared log categories will always be default shown true, only saved serialization passes or in application toggles will shut them off
 		}
 	}
 
+	private bool ShouldShowCategory(StringView Category)
+	{
+		return LogCategories.GetValue(Category);
+	}
+
+	public void SetShowLogCategory(StringView Category, bool bShow)
+	{
+		//Only change if the set show is called
+		if(LogCategories[Category] != bShow)
+		{
+			LogCategories[Category] = bShow;
+			if(!bShow)
+			{
+				//Set all the logs as no longer visible
+			}
+			else
+			{
+				//Set all the string as visible
+			}
+		}
+	}
 }
