@@ -6,11 +6,11 @@ using System.Collections;
 using ClockWorkEditor.EditorApplication;
 using ClockWorkEngine;
 using ClockWorkEngine.Utils;
-using TailTrace;
-using TailTrace.Loggers;
+using ClockWorkEngine.CoreMinimal;
 
-using static TailTrace.Log;
 using static ClockWorkEngine.Utils.StringUtils;
+
+//This class should be considered early and will most likely be removed at later builds, instead there should be a general EntryPoint class defined in the engine that starts the application
 
 class ClockWorkEditor
 {
@@ -23,7 +23,6 @@ class ClockWorkEditor
 
 	static public int Main()
 	{
-		AddLogger(new ConsoleLogger() ..SetLevel(.Trace) ..SetFormat("%l::%x (%o/%a/%y - %t)"));
 		let EditorApp = scope ClockWorkEditor();
 		EditorApp.Init();
 		return EditorApp.Run();
@@ -31,20 +30,18 @@ class ClockWorkEditor
 
 	public void Init()
 	{
-		Log.Info("Initializing Editor Application");
 		CEngine = new ClockWorkEngine();
 		if(CEngine == null)
 		{
-			Log.Error("ClockWorkEngine was not able to be created application will shutdown");
 			ShutdownApplication(1);//<--Engine Creation Failure
 		}
 		CEngine.Init();
-		Log.Info("Engine was created and initialized");
 		CApp = new CEditorApplication(CEngine);
 		if(CApp == null)
 		{
-			Log.Error("ClockWork Editor Application was not able to be created");
+			
 		}
+		CoreMinimal.CW_LOG("", .Info, "We Are Starting Up");
 		String AppName = scope String();
 		ConcatString(AppName, "ClockWork Engine Ver ", CEngine.GetEngineVersion());
 		CApp.Init(AppName);

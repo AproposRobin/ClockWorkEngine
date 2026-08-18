@@ -1,11 +1,11 @@
 FileVersion = 1
 LastConfig = "Debug"
 LastPlatform = "Win64"
-RecentFilesList = ["ClockWorkEngine\\src\\ClockWorkCore\\Module\\Modules\\CLogger.bf", "ClockWorkEditor\\src\\ClockWorkEditor.bf", "Disassembly", "ClockWorkEngine\\src\\ClockWorkEngine.bf", "ClockWorkEngine\\src\\ClockWorkCore\\CoreMinimal.bf", "ClockWorkEngine\\src\\Utils\\StringUtils.bf", "lib\\TailTrace\\src\\Formatting\\DefaultFormatter.bf", "ClockWorkEngine\\src\\ClockWorkCore\\ClockWorkUI\\Window\\CWindow.bf", "ClockWorkEditor\\src\\PanelManager\\Panel\\Panels\\CToolBarPanel.bf", "ClockWorkEditor\\src\\PanelManager\\Panel\\CPanel.bf", "ClockWorkEditor\\src\\PanelManager\\CPanelManager.bf", "ClockWorkEditor\\src\\Window\\WindowRenderer\\Renderers\\CPrimaryWindowRenderer.bf", "ClockWorkEditor\\src\\Window\\Gui\\Guis\\CPrimaryGui.bf", "ClockWorkEngine\\src\\Core\\ModuleManager\\Module\\Modules\\CTypeRegister.bf", "ClockWorkEngine\\src\\Core\\ModuleManager\\Module\\CModule.bf"]
+RecentFilesList = ["ClockWorkEngine\\src\\ClockWorkEngine.bf", "ClockWorkEditor\\src\\EditorApplication\\CEditorApplication.bf", "ClockWorkEngine\\src\\ClockWorkCore\\CoreMinimal.bf", "ClockWorkEngine\\src\\Interfaces\\ICWLogger.bf", "ClockWorkEditor\\src\\ClockWorkEditor.bf", "ClockWorkEngine\\src\\ClockWorkCore\\Module\\Modules\\CLogger.bf", "ClockWorkEngine\\src\\Utils\\StringUtils.bf", "c:\\Program Files\\BeefLang\\BeefManaged\\a6aed0ab84d00fed287be30fc8200390239fae2b\\src\\Log.bf", "Disassembly", "lib\\TailTrace\\src\\Formatting\\DefaultFormatter.bf", "ClockWorkEngine\\src\\ClockWorkCore\\ClockWorkUI\\Window\\CWindow.bf", "ClockWorkEditor\\src\\PanelManager\\Panel\\Panels\\CToolBarPanel.bf", "ClockWorkEditor\\src\\PanelManager\\Panel\\CPanel.bf", "ClockWorkEditor\\src\\PanelManager\\CPanelManager.bf", "ClockWorkEditor\\src\\Window\\WindowRenderer\\Renderers\\CPrimaryWindowRenderer.bf", "ClockWorkEditor\\src\\Window\\Gui\\Guis\\CPrimaryGui.bf", "ClockWorkEngine\\src\\Core\\ModuleManager\\Module\\Modules\\CTypeRegister.bf", "ClockWorkEngine\\src\\Core\\ModuleManager\\Module\\CModule.bf"]
 
 [MainWindow]
-X = 4
-Y = 146
+X = 0
+Y = 0
 Width = 1936
 Height = 1100
 ShowKind = "ShowMaximized"
@@ -43,34 +43,61 @@ DefaultDocumentsTabbedView = true
 Type = "TabbedView"
 
 [[MainDockingFrame.DockedWidgets.DockedWidgets.Tabs]]
+TabLabel = "CEditorApplication.bf"
+TabWidth = 163.0
+TabIsPinned = false
+Type = "SourceViewPanel"
+FilePath = "ClockWorkEditor\\src\\EditorApplication\\CEditorApplication.bf"
+CursorPos = 156
+ProjectName = "ClockWorkEditor"
+
+[[MainDockingFrame.DockedWidgets.DockedWidgets.Tabs]]
+TabLabel = "ICWLogger.bf"
+TabWidth = 119.0
+TabIsPinned = false
+Type = "SourceViewPanel"
+FilePath = "ClockWorkEngine\\src\\Interfaces\\ICWLogger.bf"
+CursorPos = 162
+ProjectName = "ClockWorkEngine"
+
+[[MainDockingFrame.DockedWidgets.DockedWidgets.Tabs]]
+TabLabel = "Log.bf"
+TabWidth = 77.0
+TabIsPinned = false
+Type = "SourceViewPanel"
+FilePath = "c:\\Program Files\\BeefLang\\BeefManaged\\a6aed0ab84d00fed287be30fc8200390239fae2b\\src\\Log.bf"
+CursorPos = 646
+ProjectName = "TailTrace.git"
+
+[[MainDockingFrame.DockedWidgets.DockedWidgets.Tabs]]
 TabLabel = "ClockWorkEditor.bf"
-TabWidth = 151.0
+TabWidth = 141.0
 TabIsPinned = false
 Type = "SourceViewPanel"
 FilePath = "ClockWorkEditor\\src\\ClockWorkEditor.bf"
-CursorPos = 618
-VertPos = 135.0
+CursorPos = 1036
+VertPos = 270.0
 ProjectName = "ClockWorkEditor"
 
 [[MainDockingFrame.DockedWidgets.DockedWidgets.Tabs]]
 TabLabel = "Disassembly"
-TabWidth = 112.0
+TabWidth = 122.0
 TabIsPinned = false
 Type = "DisassemblyPanel"
 
 [[MainDockingFrame.DockedWidgets.DockedWidgets.Tabs]]
+Active = true
 TabLabel = "ClockWorkEngine.bf"
-TabWidth = 156.0
+TabWidth = 146.0
 TabIsPinned = false
 Type = "SourceViewPanel"
 FilePath = "ClockWorkEngine\\src\\ClockWorkEngine.bf"
-CursorPos = 1353
-VertPos = 585.0
+CursorPos = 302
 ProjectName = "ClockWorkEngine"
 
 [[MainDockingFrame.DockedWidgets.DockedWidgets.Tabs]]
 TabLabel = "StringUtils.bf"
-TabWidth = 114.0
+TabWidth = 104.0
 TabIsPinned = false
 Type = "SourceViewPanel"
 FilePath = "ClockWorkEngine\\src\\Utils\\StringUtils.bf"
@@ -79,22 +106,21 @@ ProjectName = "ClockWorkEngine"
 
 [[MainDockingFrame.DockedWidgets.DockedWidgets.Tabs]]
 TabLabel = "CoreMinimal.bf"
-TabWidth = 129.0
+TabWidth = 119.0
 TabIsPinned = false
 Type = "SourceViewPanel"
 FilePath = "ClockWorkEngine\\src\\ClockWorkCore\\CoreMinimal.bf"
-CursorPos = 72
+CursorPos = 294
 ProjectName = "ClockWorkEngine"
 
 [[MainDockingFrame.DockedWidgets.DockedWidgets.Tabs]]
-Active = true
 TabLabel = "CLogger.bf"
-TabWidth = 104.0
+TabWidth = 94.0
 TabIsPinned = false
 Type = "SourceViewPanel"
 FilePath = "ClockWorkEngine\\src\\ClockWorkCore\\Module\\Modules\\CLogger.bf"
-CursorPos = 2428
-VertPos = 1530.0
+CursorPos = 1148
+VertPos = 540.0
 ProjectName = "ClockWorkEngine"
 
 [[MainDockingFrame.DockedWidgets]]

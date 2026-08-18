@@ -1,30 +1,35 @@
 namespace ClockWorkEngine.Module.Logger;
 
 using ClockWorkEngine.Module;
-
+using ClockWorkEngine.CoreMinimal;
 
 using System;
 using System.Collections;
 
 using TailTrace;
+using TailTrace.Loggers;
+
+
+/**
+This is the main Logger Module, it is likely I will position to making my own custom logger later in the future so the back-end will need to be completely agnostic in design.
+Primary use case for the logger should only be limited logging for run-time builds for things like crash reports, and general logs for things like servers.
+Editor logging needs to be broken into 2 separate types CORE and CLIENT, the core will always be present in the editor build, clients should be able to plug into the logger to handle there own logging information.
+*/
 
 using static ClockWorkEngine.Utils.StringUtils;
 
-enum ELogVerbosity
-{
-	Trace,
-	Debug,
-	Info,
-	Warning,
-	Error
-}
 
 struct SLogCategoryInfo : this(String Log, bool bShow);
 
-class CLogger : CModule
+class CLogger : ICWLogger, CModule 
 {
 	static private Dictionary<StringView, bool> LogCategories = new .() ~ delete(_);
 	static private Dictionary<StringView, SLogCategoryInfo> Logs = new .() ~ delete(_);
+
+	public this()
+	{
+		Log.AddLogger(new ConsoleLogger() ..SetLevel(.Trace) ..SetFormat("[%l] %o/%a/%y %h:%m %x"));
+	}
 
 
 	public override System.StringView GetModuleName()
@@ -34,7 +39,7 @@ class CLogger : CModule
 
 	public override void StartupModule()
 	{
-		DeclareLogCategory("ClockWorkEngine","ClockWorkEditor","ClockWorkApplication","ClockWorkWindow","ClockWorkModule","ClockWorkUI");
+		DeclareLogCategory("Undefined","ClockWorkEngine","ClockWorkEditor","ClockWorkApplication","ClockWorkWindow","ClockWorkModule","ClockWorkUI");
 	}
 
 	public override void ShutdownModule()
@@ -43,15 +48,14 @@ class CLogger : CModule
 		Logs.Clear();
 	}
 
-	public void CW_Log(StringView LogCategory, ELogVerbosity Verbosity, String LogMessage)
+	public void Log(StringView LogCategory, ELogVerbosity Verbosity, String LogMessage)
 	{
 		StringView Category = scope String();
 
-		if(LogCategories.ContainsKey(LogCategory))
+		if(!LogCategories.ContainsKey(LogCategory))
 		{
 			//We don't have the define category we are going to seperate it into an undefined log
 			Category = "Undefined";
-			return;
 		}
 		else
 		{

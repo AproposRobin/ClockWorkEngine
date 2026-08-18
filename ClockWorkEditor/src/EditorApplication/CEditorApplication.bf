@@ -5,8 +5,6 @@ using ClockWorkEditor.EditorWindow;
 using System;
 using System.Collections;
 
-using TailTrace;
-
 using SDL3.Raw;
 
 class CEditorApplication : CApplication
@@ -14,7 +12,7 @@ class CEditorApplication : CApplication
 	private ClockWorkEditor CEditor;
 	public this(ClockWorkEngine.ClockWorkEngine Engine) : base(Engine)
 	{
-		Log.Info("Constructing Editor Application");
+		
 	}
 
 	public override void Init(StringView ApplicationName)
