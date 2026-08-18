@@ -7,7 +7,7 @@ abstract class CModule
 {
 	private List<StringView> PublicDependencies = new .() ~ delete(_);
 	private List<StringView> PrivateDependencies = new .() ~ delete(_);
-	protected bool bModuleTicks = false;
+	private bool bModuleTicks = false;
 	protected ClockWorkEngine CEngine {get; protected set;}
 
 	public abstract StringView GetModuleName();
@@ -18,4 +18,5 @@ abstract class CModule
 
 	public void InitModule(ClockWorkEngine GameEngine){CEngine = GameEngine;}
 	public bool DoesModuleTick(){return bModuleTicks;}
+	public void CanModuleEverTick(bool bCanTick){bModuleTicks = bCanTick;}
 }

@@ -7,6 +7,7 @@ using System.Diagnostics;
 using ClockWorkEngine.ModuleManager;
 using ClockWorkEngine.Module;
 using ClockWorkEngine.Module.TypeRegister;
+using ClockWorkEngine.Module.Logger;
 
 
 
@@ -42,9 +43,10 @@ class ClockWorkEngine
 		ModuleManager.ShutdownAllModules();
 	}
 
-	public void RegisterModules()
+	private void RegisterModules()
 	{
 		RegisterModule(new CTypeRegistery());
+		RegisterModule(new CLogger());
 	}
 
 	public CModule GetModule(StringView ModuleName)
@@ -54,9 +56,11 @@ class ClockWorkEngine
 
 	public String GetEngineVersion() => EngVer;
 
+	public void RegisterModule(CModule Module) => ModuleManager.RegisterModule(Module);
+
 	//Private Functions 
 
-	private void RegisterModule(CModule Module) => ModuleManager.RegisterModule(Module);
+	
 
 	private void EngineTick(float DeltaTime)
 	{

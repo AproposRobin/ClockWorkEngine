@@ -7,7 +7,7 @@ using ClockWorkEngine.Module;
 
 class CModuleManager
 {
-	private Dictionary<StringView, CModule> Modules = new .() ~ delete _;
+	private Dictionary<StringView, CModule> Modules = new .() ~ DeleteDictionaryAndValues!(_);
 	private ClockWorkEngine CEngine;
 
 	public this(ClockWorkEngine GameEngine)
@@ -57,11 +57,7 @@ class CModuleManager
 	public void ShutdownAllModules()
 	{
 		for(let Mod in ref Modules.Values)
-		{
 			Mod.ShutdownModule();
-			delete Mod;//<--We need to ensure we delete the mod at the end or we will have a leak
-		}
-		Modules.Clear();
 	}
 
 	public void TickModules(float DeltaTime)

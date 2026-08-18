@@ -46,9 +46,7 @@ class CEditorApplication : CApplication
 	public override void Shutdown()
 	{
 		for(let Win in ref Windows)
-		{
 			Win.Shutdown();
-			delete Win;
-		}
+
 	}
 }

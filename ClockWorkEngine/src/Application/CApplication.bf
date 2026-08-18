@@ -13,7 +13,7 @@ using TailTrace;
 
 abstract class CApplication
 {
-	protected List<CWindow> Windows = new .() ~ delete _;
+	protected List<CWindow> Windows = new .() ~ DeleteContainerAndItems!(_);
 	protected ClockWorkEngine CEngine;
 	protected StringView AppName;
 
