@@ -9,3 +9,8 @@ Hash = "d8df10fb1303ebb141e38bf97bc43c49afe1ece2"
 URL = "https://github.com/RogueMacro/TailTrace.git"
 Tag = ""
 Hash = "a6aed0ab84d00fed287be30fc8200390239fae2b"
+
+[Locks."minicoro-beef.git".Git]
+URL = "https://github.com/jazzbre/minicoro-beef.git"
+Tag = ""
+Hash = "98ee7a7f83db9ddcd992a9150476cc2ff70d3da6"

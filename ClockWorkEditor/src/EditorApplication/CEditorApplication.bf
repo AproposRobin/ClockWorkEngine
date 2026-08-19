@@ -31,7 +31,6 @@ class CEditorApplication : CApplication
 
 	public override void Tick()
 	{
-		PollEvents();
 		for(let Win in ref Windows)
 			Win.Tick();
 	}
@@ -45,6 +44,5 @@ class CEditorApplication : CApplication
 	{
 		for(let Win in ref Windows)
 			Win.Shutdown();
-
 	}
 }

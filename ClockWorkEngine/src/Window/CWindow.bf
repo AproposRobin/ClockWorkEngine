@@ -5,18 +5,16 @@ using System;
 using ClockWorkEngine.Application;
 using SDL3.Raw;
 
-
+using static SDL3.Raw.SDL_EventType;
 
 abstract class CWindow
 {
-	protected CApplication App;
 	protected StringView WindowName;
 	protected SDL_Window* AppWindow;
 	protected SDL_Renderer* AppRenderer;
 
-	public this(CApplication Application, StringView Name)
+	public this(StringView Name)
 	{
-		App = Application;
 		WindowName = Name;
 	}
 
@@ -31,4 +29,21 @@ abstract class CWindow
 	public abstract void DrawUI();
 
 	public virtual void CreateCustomWindow(StringView WindowTitle){}
+
+	public void PollEvents()
+	{
+		SDL_Event Event = default;
+		while (SDL_PollEvent(&Event))
+		{
+			switch(Event.type)
+			{
+			case (.)SDL_EVENT_QUIT://<--All the . is doing is telling the compile to infer the type for me in this case it's a uint32 cast
+				//Call shutdown from application
+				break;
+			default:
+				break;
+			}
+		}
+		
+	}
 }

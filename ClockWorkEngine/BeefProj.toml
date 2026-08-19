@@ -7,4 +7,4 @@ TargetType = "BeefLib"
 StartupObject = "ClockWorkEngine.Program"
 
 [Configs.Debug.Win64]
-PreprocessorMacros = ["DEBUG", "CW_EDITOR"]
+PreprocessorMacros = ["DEBUG", "CW_EDITOR", "CW_RUNTIME", "CW_RUNTIMEDEBUGGER"]

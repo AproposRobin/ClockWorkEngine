@@ -1,0 +1,6 @@
+namespace ClockWorkEngine;
+
+class Entry
+{
+
+}

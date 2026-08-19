@@ -14,6 +14,7 @@ using TailTrace.Loggers;
 This is the main Logger Module, it is likely I will position to making my own custom logger later in the future so the back-end will need to be completely agnostic in design.
 Primary use case for the logger should only be limited logging for run-time builds for things like crash reports, and general logs for things like servers.
 Editor logging needs to be broken into 2 separate types CORE and CLIENT, the core will always be present in the editor build, clients should be able to plug into the logger to handle there own logging information.
+Another thing to take a look at is making the logger run on a separate thread altogether and decouple it from the engine itself.
 */
 
 using static ClockWorkEngine.Utils.StringUtils;
@@ -29,6 +30,7 @@ class CLogger : ICWLogger, CModule
 	public this()
 	{
 		Log.AddLogger(new ConsoleLogger() ..SetLevel(.Trace) ..SetFormat("[%l] %o/%a/%y %h:%m %x"));
+		DeclareLogCategories("Undefined","ClockWorkEngine","ClockWorkEditor","ClockWorkApplication","ClockWorkWindow","ClockWorkModule","ClockWorkUI");
 	}
 
 
@@ -39,7 +41,7 @@ class CLogger : ICWLogger, CModule
 
 	public override void StartupModule()
 	{
-		DeclareLogCategory("Undefined","ClockWorkEngine","ClockWorkEditor","ClockWorkApplication","ClockWorkWindow","ClockWorkModule","ClockWorkUI");
+		
 	}
 
 	public override void ShutdownModule()
@@ -93,13 +95,19 @@ class CLogger : ICWLogger, CModule
 		Logs.Add(Category, .(LogString, ShouldShowCategory(Category)));
 	}
 
-	public void DeclareLogCategory(params StringView[] Values)
+	public void DeclareLogCategories(params StringView[] Values)
 	{
 		for(let Cat in ref Values)
 		{
 			if(!LogCategories.ContainsKey(Cat))
 				LogCategories.Add(Cat, true);//<--All Declared log categories will always be default shown true, only saved serialization passes or in application toggles will shut them off
 		}
+	}
+
+	public void DeclareLogCategory(StringView Category)
+	{
+		if(!LogCategories.ContainsKey(Category))
+			LogCategories.Add(Category, true);
 	}
 
 	private bool ShouldShowCategory(StringView Category)

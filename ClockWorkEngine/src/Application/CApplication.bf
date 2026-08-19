@@ -6,8 +6,6 @@ using System.Collections;
 
 using SDL3.Raw;
 
-using static SDL3.Raw.SDL_EventType;
-
 using TailTrace;
 
 
@@ -31,21 +29,4 @@ abstract class CApplication
 	public abstract void Tick();
 	public abstract void Exit(int32 ExitReason);
 	public abstract void Shutdown();
-
-	public void PollEvents()
-	{
-		SDL_Event Event = default;
-		while (SDL_PollEvent(&Event))
-		{
-			switch(Event.type)
-			{
-			case (.)SDL_EVENT_QUIT://<--All the . is doing is telling the compile to infer the type for me in this case it's a uint32 cast
-				Exit(0);
-				break;
-			default:
-				break;
-			}
-		}
-		
-	}
 }
