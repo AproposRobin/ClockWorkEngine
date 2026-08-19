@@ -6,8 +6,6 @@ using System.Diagnostics;
 using ClockWorkEngine.CoreMinimal;
 using ClockWorkEngine.ModuleManager;
 using ClockWorkEngine.Module;
-using ClockWorkEngine.Module.TypeRegister;
-using ClockWorkEngine.Module.Logger;
 
 namespace ClockWorkEngine
 {
@@ -18,23 +16,12 @@ namespace ClockWorkEngine
 		private double LastTime;
 		private Stopwatch Watch = new Stopwatch() ~ delete _;
 		private CModuleManager ModuleManager = new .(this) ~ delete _;
-		private static CoreMinimal CMinimal = new .() ~ delete _;
+		private bool bIsActiveSim = false;
 
 		//Public Functions
-
-		public void Tick()
-		{
-			double Now = Watch.Elapsed.TotalSeconds;
-			DeltaTime = Now - LastTime;
-			LastTime = Now;
-			EngineTick(float(DeltaTime));
-			Console.WriteLine(DeltaTime);
-		}
-
 		public void Init()
 		{
 			RegisterModules();
-			CMinimal.InitCoreMinimal(this);
 			ModuleManager.StartupAllModules();
 			Watch.Start();
 			LastTime = Watch.Elapsed.TotalSeconds;
@@ -45,10 +32,20 @@ namespace ClockWorkEngine
 			ModuleManager.ShutdownAllModules();
 		}
 
+		public void Tick()
+		{
+			double Now = Watch.Elapsed.TotalSeconds;
+			DeltaTime = Now - LastTime;
+			LastTime = Now;
+			EngineTick(float(DeltaTime));
+			Console.WriteLine(DeltaTime);
+		}
+
 		private void RegisterModules()
 		{
-			RegisterModule(new CTypeRegistery());
 			RegisterModule(new CLogger());
+			RegisterModule(new CTypeRegistery());
+			RegisterModule(new CWindowEvent());
 		}
 
 		public CModule GetModule(StringView ModuleName)
@@ -60,9 +57,9 @@ namespace ClockWorkEngine
 
 		public void RegisterModule(CModule Module) => ModuleManager.RegisterModule(Module);
 
-		//Private Functions 
+		public bool IsActive() => bIsActiveSim;
 
-		
+		//Private Functions 
 
 		private void EngineTick(float DeltaTime)
 		{

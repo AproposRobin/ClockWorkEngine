@@ -18,9 +18,9 @@ abstract class CWindow
 		WindowName = Name;
 	}
 
-	public void CreateWindow(StringView WindowTitle)
+	public void CreatePrimaryWindow()
 	{
-		SDL_CreateWindowAndRenderer(scope String(WindowTitle), 800, 600, .SDL_WINDOW_RESIZABLE | .SDL_WINDOW_MAXIMIZED | .SDL_WINDOW_BORDERLESS, &AppWindow, &AppRenderer);
+		SDL_CreateWindowAndRenderer(scope String(WindowName), 800, 600, .SDL_WINDOW_RESIZABLE | .SDL_WINDOW_MAXIMIZED | .SDL_WINDOW_BORDERLESS, &AppWindow, &AppRenderer);
 	}
 
 	public abstract void Init();
@@ -28,22 +28,5 @@ abstract class CWindow
 	public abstract void Shutdown();
 	public abstract void DrawUI();
 
-	public virtual void CreateCustomWindow(StringView WindowTitle){}
-
-	public void PollEvents()
-	{
-		SDL_Event Event = default;
-		while (SDL_PollEvent(&Event))
-		{
-			switch(Event.type)
-			{
-			case (.)SDL_EVENT_QUIT://<--All the . is doing is telling the compile to infer the type for me in this case it's a uint32 cast
-				//Call shutdown from application
-				break;
-			default:
-				break;
-			}
-		}
-		
-	}
+	public virtual void CreateCustomWindow(){}
 }
