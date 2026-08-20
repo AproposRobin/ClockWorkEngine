@@ -1,18 +1,15 @@
-
-
-using ClockWorkEngine.Window;
 using System;
 using System.Collections;
 
+using ClockWorkEngine.Window;
 using SDL3.Raw;
-using TailTrace;
 
 namespace ClockWorkEngine.Application
 {
 	abstract class CApplication
 	{
 		protected CWindow PrimaryWindow;
-		protected List<CWindow> Windows = new .() ~ DeleteContainerAndItems!(_);
+		protected Dictionary<StringView, CWindow> Windows = new .() ~ DeleteDictionaryAndValues!(_);
 		protected ClockWorkEngine CEngine;
 		protected StringView AppName;
 
@@ -24,7 +21,7 @@ namespace ClockWorkEngine.Application
 			CEngine = Engine;
 			if(!SDL_Init(.SDL_INIT_EVENTS | .SDL_INIT_VIDEO))
 			{
-				Log.Error("Failed to initialize SDL, application will shutdown");
+				Console.WriteLine("Failed to initialize SDL, application will shutdown");
 				Exit(2);//<--Exit code 2 SDL initialization failure
 			}
 		}
@@ -33,7 +30,8 @@ namespace ClockWorkEngine.Application
 		{
 			while(bRunning)
 			{
-				if(CEngine.IsActive())
+				//Need to setup a couple of threads GlobalIlluminationThread, GameThread, PhysicsThread, UIRenderThread, AnimationThread. There may be more later but generally these are the biggest concerns.
+				if(CEngine.IsSimActive())
 				{
 					CEngine.Tick();
 				}
@@ -54,8 +52,12 @@ namespace ClockWorkEngine.Application
 			{
 				delete PrimaryWindow;
 			}
+			PrimaryWindow.Shutdown();
+			delete PrimaryWindow;
+			CEngine.Shutdown();
 		}
 
+		public CWindow GetPrimaryWindow() => PrimaryWindow;
 		public abstract void Init(StringView ApplicationName);
 		public abstract int32 Run();
 		

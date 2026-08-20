@@ -3,4 +3,4 @@ Dependencies = {corlib = "*", ClockWorkEngine = "*", "SDL3-Beef.git" = {Git = "h
 
 [Project]
 Name = "ClockWorkEditor"
-StartupObject = "ClockWorkEditor.ClockWorkEditor"
+StartupObject = "ClockWorkEditor.Program"

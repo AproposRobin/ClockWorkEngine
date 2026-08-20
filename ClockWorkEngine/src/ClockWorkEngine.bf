@@ -17,6 +17,7 @@ namespace ClockWorkEngine
 		private Stopwatch Watch = new Stopwatch() ~ delete _;
 		private CModuleManager ModuleManager = new .(this) ~ delete _;
 		private bool bIsActiveSim = false;
+		
 
 		//Public Functions
 		public void Init()
@@ -25,6 +26,9 @@ namespace ClockWorkEngine
 			ModuleManager.StartupAllModules();
 			Watch.Start();
 			LastTime = Watch.Elapsed.TotalSeconds;
+			CLogger log = (CLogger)GetModule("CLogger");
+			log.DeclareLogCategory("ClockWorkEngine");
+			CW_LOG("ClockWorkEngine", .Info, "Working");
 		}
 
 		public void Shutdown()
@@ -38,7 +42,6 @@ namespace ClockWorkEngine
 			DeltaTime = Now - LastTime;
 			LastTime = Now;
 			EngineTick(float(DeltaTime));
-			Console.WriteLine(DeltaTime);
 		}
 
 		private void RegisterModules()
@@ -57,7 +60,7 @@ namespace ClockWorkEngine
 
 		public void RegisterModule(CModule Module) => ModuleManager.RegisterModule(Module);
 
-		public bool IsActive() => bIsActiveSim;
+		public bool IsSimActive() => bIsActiveSim;
 
 		//Private Functions 
 

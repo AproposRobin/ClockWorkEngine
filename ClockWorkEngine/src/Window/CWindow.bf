@@ -16,17 +16,18 @@ abstract class CWindow
 	public this(StringView Name)
 	{
 		WindowName = Name;
+		CreatePrimaryWindow();
 	}
+
+	public abstract void Init();
+	public abstract void Shutdown();
+	public abstract void Tick();
+	public abstract void DrawUI();
 
 	public void CreatePrimaryWindow()
 	{
 		SDL_CreateWindowAndRenderer(scope String(WindowName), 800, 600, .SDL_WINDOW_RESIZABLE | .SDL_WINDOW_MAXIMIZED | .SDL_WINDOW_BORDERLESS, &AppWindow, &AppRenderer);
 	}
-
-	public abstract void Init();
-	public abstract void Tick();
-	public abstract void Shutdown();
-	public abstract void DrawUI();
 
 	public virtual void CreateCustomWindow(){}
 }

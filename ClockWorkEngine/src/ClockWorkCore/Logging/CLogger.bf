@@ -1,13 +1,11 @@
-using ClockWorkEngine.Module;
-using ClockWorkEngine.CoreMinimal;
-
 using System;
 using System.Collections;
 
+using ClockWorkEngine.Module;
+using ClockWorkEngine.CoreMinimal;
+
 using TailTrace;
 using TailTrace.Loggers;
-
-using static ClockWorkEngine.Utils.StringUtils;
 
 /**
 This is the main Logger Module, it is likely I will position to making my own custom logger later in the future so the back-end will need to be completely agnostic in design.
@@ -19,15 +17,20 @@ namespace ClockWorkEngine.Module
 {
 	struct SLogCategoryInfo : this(String Log, bool bShow);
 
-	class CLogger : ICWLogger, CModule 
+	class CLogger : CModule 
 	{
 		static private Dictionary<StringView, bool> LogCategories = new .() ~ delete(_);
 		static private Dictionary<StringView, SLogCategoryInfo> Logs = new .() ~ delete(_);
 
 		public this()
 		{
-			Log.AddLogger(new ConsoleLogger() ..SetLevel(.Trace) ..SetFormat("[%l] %o/%a/%y %h:%m %x"));
-			DeclareLogCategories("Undefined","ClockWorkEngine","ClockWorkEditor","ClockWorkApplication","ClockWorkWindow","ClockWorkModule","ClockWorkUI");
+			Log.AddLogger(new ConsoleLogger() ..SetLevel(.Trace) ..SetFormat("[%l] %o/%a/%y %x"));
+			LogMessage = new => CLog;
+		}
+
+		public ~ this()
+		{
+			LogMessage = null;
 		}
 
 
@@ -47,7 +50,7 @@ namespace ClockWorkEngine.Module
 			Logs.Clear();
 		}
 
-		public void Log(StringView LogCategory, ELogVerbosity Verbosity, String LogMessage)
+		public void CLog(StringView LogCategory, ELogVerbosity Verbosity, String LogMessage)
 		{
 			StringView Category = scope String();
 
@@ -107,6 +110,7 @@ namespace ClockWorkEngine.Module
 				LogCategories.Add(Category, true);
 		}
 
+		//Currently without the primary window these are not in use but are in place for when the application does get its logger window
 		private bool ShouldShowCategory(StringView Category)
 		{
 			return LogCategories.GetValue(Category);

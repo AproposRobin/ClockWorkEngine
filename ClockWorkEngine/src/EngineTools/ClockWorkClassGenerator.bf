@@ -20,9 +20,9 @@ namespace ClockWorkEngine.Tools
 
 			outFileName.Append(FileName);
 
-			let classtype = mParams["ClockWorkClasses"];
+			let Classtype = mParams["ClockWorkClasses"];
 
-			if(classtype == "Base")
+			if(Classtype == "Base")
 			{
 				outText.AppendF(
 					$"""
