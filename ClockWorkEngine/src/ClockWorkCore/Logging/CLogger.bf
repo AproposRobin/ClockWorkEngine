@@ -25,12 +25,16 @@ namespace ClockWorkEngine.Module
 		public this()
 		{
 			Log.AddLogger(new ConsoleLogger() ..SetLevel(.Trace) ..SetFormat("[%l] %o/%a/%y %x"));
-			LogMessage = new => CLog;
+			CW_LOG = new => CLog;
+			CW_DECLARELOGCATEGORY = new => CDeclareLogCategory;
+			CW_DECLARELOGCATEGORIES = new => CDeclareLogCategories;
 		}
 
 		public ~ this()
 		{
-			LogMessage = null;
+			CW_LOG = null;
+			CW_DECLARELOGCATEGORY = null;
+			CW_DECLARELOGCATEGORIES = null;
 		}
 
 
@@ -95,7 +99,7 @@ namespace ClockWorkEngine.Module
 			Logs.Add(Category, .(LogString, ShouldShowCategory(Category)));
 		}
 
-		public void DeclareLogCategories(params StringView[] Values)
+		public void CDeclareLogCategories(params StringView[] Values)
 		{
 			for(let Cat in ref Values)
 			{
@@ -104,7 +108,7 @@ namespace ClockWorkEngine.Module
 			}
 		}
 
-		public void DeclareLogCategory(StringView Category)
+		public void CDeclareLogCategory(StringView Category)
 		{
 			if(!LogCategories.ContainsKey(Category))
 				LogCategories.Add(Category, true);

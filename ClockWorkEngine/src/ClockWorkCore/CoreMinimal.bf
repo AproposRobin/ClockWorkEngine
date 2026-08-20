@@ -27,23 +27,14 @@ namespace ClockWorkEngine.CoreMinimal
 
 	static
 	{
-		public static delegate void(StringView Category, ELogVerbosity Verbosity, String Message) LogMessage = null;
+		public static delegate void(StringView Category, ELogVerbosity Verbosity, String Message) CW_LOG = null;
+		public static delegate void(StringView Category) CW_DECLARELOGCATEGORY = null;
+		public static delegate void(params StringView[] Categories) CW_DECLARELOGCATEGORIES = null;
 
 		public static void ConcatString(String OutStr, params Object[] Values)
 		{
 			for(let Str in ref Values)
 				OutStr.Append(Str);
 		}
-
-		public static void CW_LOG(StringView Category, ELogVerbosity Verbosity, String Message)
-		{
-			if(LogMessage != null)
-			{
-				LogMessage(Category, Verbosity, Message);
-			}
-		}
-
-		public static void CW_DECLARELOGCATEGORY(StringView Category){}
-		public static void CW_DECLARELOGCATEGORIES(params StringView[] Categories){}
 	}
 }

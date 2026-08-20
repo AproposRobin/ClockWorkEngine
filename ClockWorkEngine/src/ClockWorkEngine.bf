@@ -26,9 +26,8 @@ namespace ClockWorkEngine
 			ModuleManager.StartupAllModules();
 			Watch.Start();
 			LastTime = Watch.Elapsed.TotalSeconds;
-			CLogger log = (CLogger)GetModule("CLogger");
-			log.DeclareLogCategory("ClockWorkEngine");
-			CW_LOG("ClockWorkEngine", .Info, "Working");
+			CW_DECLARELOGCATEGORY("ClockWorkEngine");
+			CW_LOG("ClockWorkEngine", .Info, "Engine is Initialized");
 		}
 
 		public void Shutdown()
