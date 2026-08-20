@@ -25,11 +25,15 @@ namespace ClockWorkEngine.CoreMinimal
 
 	struct CTransform : this(CVector3D Location, CRotator Rotation, CVector3D Scale);
 
+
+	/**
+	Static declarations
+	These functions/params are for universal access to any portion of code that relies on ClockWorkEngine.CoreMinimal
+	*/
 	static
 	{
 		public static delegate void(StringView Category, ELogVerbosity Verbosity, String Message) CW_LOG = null;
 		public static delegate void(StringView Category) CW_DECLARELOGCATEGORY = null;
-		public static delegate void(params StringView[] Categories) CW_DECLARELOGCATEGORIES = null;
 
 		public static void ConcatString(String OutStr, params Object[] Values)
 		{

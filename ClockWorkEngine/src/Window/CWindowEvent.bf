@@ -1,13 +1,15 @@
 using ClockWorkEngine.CoreMinimal;
+using ClockWorkEngine.WindowEvents;
 
 using SDL3.Raw;
 using static SDL3.Raw.SDL_EventType;
 
 namespace ClockWorkEngine.Module
 {
-	class CWindowEvent : CModule
+	class CWindowEvent : CModule, ICWindowEvent
 	{
-		public function void(SDL_Event*) OnEventPolled = null;
+		public delegate void(SDL_Event*) OnEventPolled = null;
+		public delegate void(int32) OnWindowClose = null;
  
 		public this()
 		{
@@ -31,7 +33,12 @@ namespace ClockWorkEngine.Module
 
 		public override void ShutdownModule()
 		{
+		 	
+		}
 
+		public void BindOnCloseDelegate(delegate void(int32) OnWinCloseDel)
+		{
+			OnWindowClose = OnWinCloseDel;
 		}
 
 		public void PollEvents()
@@ -39,9 +46,12 @@ namespace ClockWorkEngine.Module
 			SDL_Event Event = default;
 			while (SDL_PollEvent(&Event))
 			{
-				if(Event.type == (.)SDL_EVENT_QUIT)
+				if(Event.type == (uint32)SDL_EVENT_QUIT)
 				{
-
+					if(OnWindowClose != null)
+					{
+						OnWindowClose(0);
+					}
 				}
 
 				if(OnEventPolled != null)

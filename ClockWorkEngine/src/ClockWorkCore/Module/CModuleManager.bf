@@ -7,7 +7,7 @@ namespace ClockWorkEngine.ModuleManager
 {
 	class CModuleManager
 	{
-		private Dictionary<StringView, CModule> Modules = new .() ~ DeleteDictionaryAndValues!(_);
+		private Dictionary<StringView, IModule> Modules = new .() ~ DeleteDictionaryAndValues!(_);
 		private ClockWorkEngine CEngine;
 
 		public this(ClockWorkEngine GameEngine)
@@ -15,61 +15,76 @@ namespace ClockWorkEngine.ModuleManager
 			CEngine = GameEngine;
 		}
 
-		public void RegisterModule(CModule Module)
+		public void RegisterModule(IModule Module)
 		{
 			Modules[Module.GetModuleName()] = Module;
 			Module.InitModule(CEngine);
 		}
 
-		public void StartupAllModules()
+		public void StartupCoreModules()
 		{
-			List<CModule> SortedMods = scope .();
+			List<IModule> SortedMods = scope .();
 			HashSet<StringView> VisitedMods = scope .();
+			HashSet<StringView> VisitingMods = scope .();
 
-			void Visit(CModule Mod)
+			void Visit(IModule Mod)
 			{
+				StringView ModName = Mod.GetModuleName();
+
+				if (VisitingMods.Contains(ModName))
+				{
+					Runtime.FatalError(scope $"Fatal: Circular dependency detected involving module '{ModName}'!");
+				}
+
 				if(VisitedMods.Contains(Mod.GetModuleName()))
 					return;
-				VisitedMods.Add(Mod.GetModuleName());
 
-				if(Mod.GetPublicDependencies().Length != 0)
+				VisitingMods.Add(Mod.GetModuleName());
+
+				for(let DepName in Mod.GetPublicDependencies())
 				{
-					for(let DepName in ref Mod.GetPublicDependencies())
-					{
-						if(Modules.TryGetValue(DepName, let Dep))
-							Visit(Dep);
-						else
-							Console.WriteLine(scope $"Warning: module '{Mod.GetModuleName()}' missing dependency '{DepName}'");
-					}
+					if(Modules.TryGetValue(DepName, let Dep))
+						Visit(Dep);
+					else
+						Console.WriteLine(scope $"Warning: module '{Mod.GetModuleName()}' missing dependency '{DepName}'");
 				}
-				//We need to do private dependencies seperately for each module and ensure it isn't already loaded
+				VisitingMods.Remove(ModName);
+				VisitedMods.Add(ModName);
+				//We need to do private dependencies separately for each module and ensure it isn't already loaded
 				SortedMods.Add(Mod);
 				return;
 			}
 
-			for(let Mod in ref Modules.Values)
+			for(let Mod in Modules.Values)
 				Visit(Mod);
 
-			for(let Mod in ref SortedMods)
+			for(let Mod in SortedMods)
 				Mod.StartupModule();
 		}
 
 		public void ShutdownAllModules()
 		{
-			for(let Mod in ref Modules.Values)
+			for(let Mod in Modules.Values)
 				Mod.ShutdownModule();
 		}
 
 		public void TickModules(float DeltaTime)
 		{
 			//Later we should check if a module can even tick not all of them need to
-			for(let Mod in ref Modules.Values)
-				Mod.ModuleTick(DeltaTime);
+			for(let Mod in Modules.Values)
+			{
+				if(Mod.DoesModuleTick())
+				{
+					Mod.ModuleTick(DeltaTime);
+				}
+			}
 		}
 
 		public CModule GetModule(StringView ModuleName)
 		{
-			return Modules.GetValue(ModuleName);
+			if (Modules.TryGetValue(ModuleName, let Mod))
+				return Mod as CModule;
+			return null;
 		}
 	}
 }

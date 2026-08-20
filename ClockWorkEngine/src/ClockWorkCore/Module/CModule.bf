@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace ClockWorkEngine.Module
 {
-	abstract class CModule
+	abstract class CModule : IModule
 	{
 		private List<StringView> PublicDependencies = new .() ~ delete(_);
 		private List<StringView> PrivateDependencies = new .() ~ delete(_);
@@ -15,7 +15,7 @@ namespace ClockWorkEngine.Module
 		public abstract void ShutdownModule();
 		public virtual void ModuleTick(float DeltaTime){}
 		public Span<StringView> GetPublicDependencies() {return PublicDependencies;}
-
+		public Span<StringView> GetPrivateDependencies() {return PrivateDependencies;}
 
 		public void InitModule(ClockWorkEngine GameEngine){CEngine = GameEngine;}
 		public bool DoesModuleTick(){return bModuleTicks;}

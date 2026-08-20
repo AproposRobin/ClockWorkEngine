@@ -22,8 +22,8 @@ namespace ClockWorkEngine
 		//Public Functions
 		public void Init()
 		{
-			RegisterModules();
-			ModuleManager.StartupAllModules();
+			RegisterCoreModules();
+			ModuleManager.StartupCoreModules();
 			Watch.Start();
 			LastTime = Watch.Elapsed.TotalSeconds;
 			CW_DECLARELOGCATEGORY("ClockWorkEngine");
@@ -43,7 +43,7 @@ namespace ClockWorkEngine
 			EngineTick(float(DeltaTime));
 		}
 
-		private void RegisterModules()
+		private void RegisterCoreModules()
 		{
 			RegisterModule(new CLogger());
 			RegisterModule(new CTypeRegistery());

@@ -9,6 +9,7 @@ using static SDL3.Raw.SDL_EventType;
 
 abstract class CWindow
 {
+
 	protected StringView WindowName;
 	protected SDL_Window* AppWindow;
 	protected SDL_Renderer* AppRenderer;
@@ -16,7 +17,6 @@ abstract class CWindow
 	public this(StringView Name)
 	{
 		WindowName = Name;
-		CreatePrimaryWindow();
 	}
 
 	public abstract void Init();
@@ -26,7 +26,7 @@ abstract class CWindow
 
 	public void CreatePrimaryWindow()
 	{
-		SDL_CreateWindowAndRenderer(scope String(WindowName), 800, 600, .SDL_WINDOW_RESIZABLE | .SDL_WINDOW_MAXIMIZED | .SDL_WINDOW_BORDERLESS, &AppWindow, &AppRenderer);
+		SDL_CreateWindowAndRenderer(WindowName.ToScopeCStr!(), 800, 600, .SDL_WINDOW_RESIZABLE | .SDL_WINDOW_MAXIMIZED | .SDL_WINDOW_BORDERLESS, &AppWindow, &AppRenderer);
 	}
 
 	public virtual void CreateCustomWindow(){}

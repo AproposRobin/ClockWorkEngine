@@ -1,7 +1,7 @@
 FileVersion = 1
 LastConfig = "Debug"
 LastPlatform = "Win64"
-RecentFilesList = ["ClockWorkEngine\\src\\ClockWorkCore\\Logging\\CLogger.bf", "ClockWorkEngine\\src\\ClockWorkCore\\CoreMinimal.bf", "ClockWorkEngine\\src\\ClockWorkEngine.bf", "ClockWorkEngine\\src\\Window\\CWindowEvent.bf", "c:\\Program Files\\BeefLang\\BeefLibs\\corlib\\src\\Collections\\Dictionary.bf", "ClockWorkEditor\\src\\Program.bf", "Disassembly", "Disassembly", "lib\\TailTrace\\src\\Formatting\\DefaultFormatter.bf", "ClockWorkEngine\\src\\ClockWorkCore\\ClockWorkUI\\Window\\CWindow.bf", "ClockWorkEditor\\src\\PanelManager\\Panel\\Panels\\CToolBarPanel.bf", "ClockWorkEditor\\src\\PanelManager\\Panel\\CPanel.bf"]
+RecentFilesList = ["ClockWorkEngine\\src\\Window\\CWindowEvent.bf", "Disassembly", "Disassembly", "lib\\TailTrace\\src\\Formatting\\DefaultFormatter.bf", "ClockWorkEngine\\src\\ClockWorkCore\\ClockWorkUI\\Window\\CWindow.bf", "ClockWorkEditor\\src\\PanelManager\\Panel\\Panels\\CToolBarPanel.bf", "ClockWorkEditor\\src\\PanelManager\\Panel\\CPanel.bf"]
 
 [MainWindow]
 X = 0
@@ -22,7 +22,7 @@ Type = "DockingFrame"
 SplitType = 1
 
 [[MainDockingFrame.DockedWidgets.DockedWidgets]]
-RequestedWidth = 272.0
+RequestedWidth = 340.6
 RequestedHeight = 200.0
 Type = "TabbedView"
 
@@ -38,68 +38,19 @@ IsFillWidget = true
 Permanent = true
 RequestedWidth = 150.0
 RequestedHeight = 150.0
-SizePriority = 150.0
+SizePriority = 0.1138088
 DefaultDocumentsTabbedView = true
 Type = "TabbedView"
 
 [[MainDockingFrame.DockedWidgets.DockedWidgets.Tabs]]
-TabLabel = "Dictionary.bf"
-TabWidth = 103.0
-TabIsPinned = false
-Type = "SourceViewPanel"
-FilePath = "c:\\Program Files\\BeefLang\\BeefLibs\\corlib\\src\\Collections\\Dictionary.bf"
-CursorPos = 6711
-VertPos = 4080.0
-ProjectName = "corlib"
-
-[[MainDockingFrame.DockedWidgets.DockedWidgets.Tabs]]
-TabLabel = "ClockWorkEngine.bf"
-TabWidth = 146.0
-TabIsPinned = false
-Type = "SourceViewPanel"
-FilePath = "ClockWorkEngine\\src\\ClockWorkEngine.bf"
-CursorPos = 675
-VertPos = 158.625
-ProjectName = "ClockWorkEngine"
-
-[[MainDockingFrame.DockedWidgets.DockedWidgets.Tabs]]
+Active = true
 TabLabel = "CWindowEvent.bf"
-TabWidth = 131.0
+TabWidth = 141.0
 TabIsPinned = false
 Type = "SourceViewPanel"
 FilePath = "ClockWorkEngine\\src\\Window\\CWindowEvent.bf"
-CursorPos = 268
-ProjectName = "ClockWorkEngine"
-
-[[MainDockingFrame.DockedWidgets.DockedWidgets.Tabs]]
-Active = true
-TabLabel = "CLogger.bf"
-TabWidth = 94.0
-TabIsPinned = false
-Type = "SourceViewPanel"
-FilePath = "ClockWorkEngine\\src\\ClockWorkCore\\Logging\\CLogger.bf"
-CursorPos = 1476
-VertPos = 140.625
-ProjectName = "ClockWorkEngine"
-
-[[MainDockingFrame.DockedWidgets.DockedWidgets.Tabs]]
-TabLabel = "Program.bf"
-TabWidth = 96.0
-TabIsPinned = false
-Type = "SourceViewPanel"
-FilePath = "ClockWorkEditor\\src\\Program.bf"
-CursorPos = 276
-VertPos = 404.625
-ProjectName = "ClockWorkEditor"
-
-[[MainDockingFrame.DockedWidgets.DockedWidgets.Tabs]]
-TabLabel = "CoreMinimal.bf"
-TabWidth = 119.0
-TabIsPinned = false
-Type = "SourceViewPanel"
-FilePath = "ClockWorkEngine\\src\\ClockWorkCore\\CoreMinimal.bf"
-CursorPos = 735
-VertPos = 331.125
+CursorPos = 851
+VertPos = 300.0
 ProjectName = "ClockWorkEngine"
 
 [[MainDockingFrame.DockedWidgets]]
@@ -111,24 +62,27 @@ SplitType = 1
 [[MainDockingFrame.DockedWidgets.DockedWidgets]]
 RequestedWidth = 250.0
 RequestedHeight = 250.0
-SizePriority = 0.2413973
+SizePriority = 0.4087591
 Type = "TabbedView"
 
 [[MainDockingFrame.DockedWidgets.DockedWidgets.Tabs]]
-Active = true
 TabLabel = "Memory"
 TabWidth = 99.0
 TabIsPinned = false
 Type = "MemoryPanel"
 AutoResize = "Auto_Mul8"
-RequestedWidth = 300.0
+RequestedWidth = 117.0
 
 [[MainDockingFrame.DockedWidgets.DockedWidgets.Tabs]]
+Active = true
 TabLabel = "Watch"
 TabWidth = 86.0
 TabIsPinned = false
 Type = "WatchPanel"
 Columns = [{Width = 200.0}, {Width = 200.0}, {Width = 200.0}]
+
+[[MainDockingFrame.DockedWidgets.DockedWidgets.Tabs.Items]]
+EvalStr = ""
 
 [[MainDockingFrame.DockedWidgets.DockedWidgets.Tabs]]
 TabLabel = "Auto"
@@ -140,7 +94,7 @@ Columns = [{Width = 200.0}, {Width = 200.0}, {Width = 200.0}]
 [[MainDockingFrame.DockedWidgets.DockedWidgets]]
 RequestedWidth = 250.0
 RequestedHeight = 250.0
-SizePriority = 0.7586027
+SizePriority = 0.5912409
 Type = "TabbedView"
 
 [[MainDockingFrame.DockedWidgets.DockedWidgets.Tabs]]

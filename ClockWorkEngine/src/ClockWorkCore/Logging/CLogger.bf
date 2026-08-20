@@ -15,26 +15,18 @@ Another thing to take a look at is making the logger run on a separate thread al
 */
 namespace ClockWorkEngine.Module
 {
-	struct SLogCategoryInfo : this(String Log, bool bShow);
+	struct SLogEntry : this(StringView Category, String Log, bool bShow);
 
 	class CLogger : CModule 
 	{
 		static private Dictionary<StringView, bool> LogCategories = new .() ~ delete(_);
-		static private Dictionary<StringView, SLogCategoryInfo> Logs = new .() ~ delete(_);
+		static private List<SLogEntry> Logs = new .() ~ delete(_);
 
 		public this()
 		{
 			Log.AddLogger(new ConsoleLogger() ..SetLevel(.Trace) ..SetFormat("[%l] %o/%a/%y %x"));
 			CW_LOG = new => CLog;
 			CW_DECLARELOGCATEGORY = new => CDeclareLogCategory;
-			CW_DECLARELOGCATEGORIES = new => CDeclareLogCategories;
-		}
-
-		public ~ this()
-		{
-			CW_LOG = null;
-			CW_DECLARELOGCATEGORY = null;
-			CW_DECLARELOGCATEGORIES = null;
 		}
 
 
@@ -50,6 +42,8 @@ namespace ClockWorkEngine.Module
 
 		public override void ShutdownModule()
 		{
+			delete CW_LOG;
+			delete CW_DECLARELOGCATEGORY;
 			LogCategories.Clear();
 			Logs.Clear();
 		}
@@ -96,7 +90,7 @@ namespace ClockWorkEngine.Module
 				Log.Info(LogString);
 				break;
 			}
-			Logs.Add(Category, .(LogString, ShouldShowCategory(Category)));
+			Logs.Add(.(Category, LogString, ShouldShowCategory(Category)));
 		}
 
 		public void CDeclareLogCategories(params StringView[] Values)
