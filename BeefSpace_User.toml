@@ -1,7 +1,7 @@
 FileVersion = 1
 LastConfig = "Debug"
 LastPlatform = "Win64"
-RecentFilesList = ["ClockWorkEngine\\src\\Window\\CWindowEvent.bf", "Disassembly", "Disassembly", "lib\\TailTrace\\src\\Formatting\\DefaultFormatter.bf", "ClockWorkEngine\\src\\ClockWorkCore\\ClockWorkUI\\Window\\CWindow.bf", "ClockWorkEditor\\src\\PanelManager\\Panel\\Panels\\CToolBarPanel.bf", "ClockWorkEditor\\src\\PanelManager\\Panel\\CPanel.bf"]
+RecentFilesList = ["ClockWorkEngine\\src\\ClockWorkCore\\Logging\\CLogger.bf", "ClockWorkEngine\\src\\Window\\CWindow.bf", "ClockWorkEngine\\src\\Window\\CWindowEvent.bf", "Disassembly", "Disassembly", "lib\\TailTrace\\src\\Formatting\\DefaultFormatter.bf", "ClockWorkEngine\\src\\ClockWorkCore\\ClockWorkUI\\Window\\CWindow.bf", "ClockWorkEditor\\src\\PanelManager\\Panel\\Panels\\CToolBarPanel.bf", "ClockWorkEditor\\src\\PanelManager\\Panel\\CPanel.bf"]
 
 [MainWindow]
 X = 0
@@ -44,13 +44,32 @@ Type = "TabbedView"
 
 [[MainDockingFrame.DockedWidgets.DockedWidgets.Tabs]]
 Active = true
+TabLabel = "CLogger.bf"
+TabWidth = 104.0
+TabIsPinned = false
+Type = "SourceViewPanel"
+FilePath = "ClockWorkEngine\\src\\ClockWorkCore\\Logging\\CLogger.bf"
+CursorPos = 1045
+VertPos = 1620.0
+ProjectName = "ClockWorkEngine"
+
+[[MainDockingFrame.DockedWidgets.DockedWidgets.Tabs]]
+TabLabel = "CWindow.bf"
+TabWidth = 110.0
+TabIsPinned = false
+Type = "SourceViewPanel"
+FilePath = "ClockWorkEngine\\src\\Window\\CWindow.bf"
+CursorPos = 329
+VertPos = 180.0
+ProjectName = "ClockWorkEngine"
+
+[[MainDockingFrame.DockedWidgets.DockedWidgets.Tabs]]
 TabLabel = "CWindowEvent.bf"
 TabWidth = 141.0
 TabIsPinned = false
 Type = "SourceViewPanel"
 FilePath = "ClockWorkEngine\\src\\Window\\CWindowEvent.bf"
-CursorPos = 851
-VertPos = 300.0
+CursorPos = 977
 ProjectName = "ClockWorkEngine"
 
 [[MainDockingFrame.DockedWidgets]]
